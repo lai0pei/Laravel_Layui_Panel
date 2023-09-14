@@ -1,0 +1,1943 @@
+
+bolt.so:	file format mach-o 64-bit x86-64
+
+Disassembly of section __TEXT,__text:
+
+0000000000001900 <_zif_bolt_encrypt>:
+    1900: 55                           	pushq	%rbp
+    1901: 48 89 e5                     	movq	%rsp, %rbp
+    1904: 48 81 ec 40 02 00 00         	subq	$576, %rsp              ## imm = 0x240
+    190b: 48 89 bd a0 fe ff ff         	movq	%rdi, -352(%rbp)
+    1912: 48 89 b5 98 fe ff ff         	movq	%rsi, -360(%rbp)
+    1919: c7 85 74 fe ff ff 00 00 00 00	movl	$0, -396(%rbp)
+    1923: c7 85 70 fe ff ff 02 00 00 00	movl	$2, -400(%rbp)
+    192d: c7 85 6c fe ff ff 02 00 00 00	movl	$2, -404(%rbp)
+    1937: 48 8b 85 a0 fe ff ff         	movq	-352(%rbp), %rax
+    193e: 8b 40 2c                     	movl	44(%rax), %eax
+    1941: 89 85 68 fe ff ff            	movl	%eax, -408(%rbp)
+    1947: c7 85 64 fe ff ff 00 00 00 00	movl	$0, -412(%rbp)
+    1951: 48 c7 85 50 fe ff ff 00 00 00 00     	movq	$0, -432(%rbp)
+    195c: c7 85 4c fe ff ff 00 00 00 00	movl	$0, -436(%rbp)
+    1966: 48 c7 85 40 fe ff ff 00 00 00 00     	movq	$0, -448(%rbp)
+    1971: c6 85 3f fe ff ff 00         	movb	$0, -449(%rbp)
+    1978: c6 85 3e fe ff ff 00         	movb	$0, -450(%rbp)
+    197f: c7 85 38 fe ff ff 00 00 00 00	movl	$0, -456(%rbp)
+    1989: 8b 85 68 fe ff ff            	movl	-408(%rbp), %eax
+    198f: 3b 85 70 fe ff ff            	cmpl	-400(%rbp), %eax
+    1995: 0f 92 c0                     	setb	%al
+    1998: 34 ff                        	xorb	$-1, %al
+    199a: 34 ff                        	xorb	$-1, %al
+    199c: 24 01                        	andb	$1, %al
+    199e: 0f b6 c0                     	movzbl	%al, %eax
+    19a1: 48 98                        	cltq
+    19a3: 48 83 f8 00                  	cmpq	$0, %rax
+    19a7: 0f 85 24 00 00 00            	jne	0x19d1 <_zif_bolt_encrypt+0xd1>
+    19ad: 8b 85 68 fe ff ff            	movl	-408(%rbp), %eax
+    19b3: 3b 85 6c fe ff ff            	cmpl	-404(%rbp), %eax
+    19b9: 0f 97 c0                     	seta	%al
+    19bc: 34 ff                        	xorb	$-1, %al
+    19be: 34 ff                        	xorb	$-1, %al
+    19c0: 24 01                        	andb	$1, %al
+    19c2: 0f b6 c0                     	movzbl	%al, %eax
+    19c5: 48 98                        	cltq
+    19c7: 48 83 f8 00                  	cmpq	$0, %rax
+    19cb: 0f 84 20 00 00 00            	je	0x19f1 <_zif_bolt_encrypt+0xf1>
+    19d1: 8b bd 70 fe ff ff            	movl	-400(%rbp), %edi
+    19d7: 8b b5 6c fe ff ff            	movl	-404(%rbp), %esi
+    19dd: e8 c4 23 00 00               	callq	0x3da6 <dyld_stub_binder+0x3da6>
+    19e2: c7 85 38 fe ff ff 01 00 00 00	movl	$1, -456(%rbp)
+    19ec: e9 db 05 00 00               	jmp	0x1fcc <_zif_bolt_encrypt+0x6cc>
+    19f1: 48 8b 85 a0 fe ff ff         	movq	-352(%rbp), %rax
+    19f8: 48 83 c0 40                  	addq	$64, %rax
+    19fc: 48 89 85 58 fe ff ff         	movq	%rax, -424(%rbp)
+    1a03: 8b 85 64 fe ff ff            	movl	-412(%rbp), %eax
+    1a09: 83 c0 01                     	addl	$1, %eax
+    1a0c: 89 85 64 fe ff ff            	movl	%eax, -412(%rbp)
+    1a12: 8b 85 64 fe ff ff            	movl	-412(%rbp), %eax
+    1a18: 3b 85 70 fe ff ff            	cmpl	-400(%rbp), %eax
+    1a1e: b0 01                        	movb	$1, %al
+    1a20: 88 85 ef fd ff ff            	movb	%al, -529(%rbp)
+    1a26: 0f 86 17 00 00 00            	jbe	0x1a43 <_zif_bolt_encrypt+0x143>
+    1a2c: 8a 85 3e fe ff ff            	movb	-450(%rbp), %al
+    1a32: 24 01                        	andb	$1, %al
+    1a34: 0f b6 c0                     	movzbl	%al, %eax
+    1a37: 83 f8 01                     	cmpl	$1, %eax
+    1a3a: 0f 94 c0                     	sete	%al
+    1a3d: 88 85 ef fd ff ff            	movb	%al, -529(%rbp)
+    1a43: 8a 85 ef fd ff ff            	movb	-529(%rbp), %al
+    1a49: 34 ff                        	xorb	$-1, %al
+    1a4b: 24 01                        	andb	$1, %al
+    1a4d: 0f b6 c0                     	movzbl	%al, %eax
+    1a50: 48 98                        	cltq
+    1a52: 48 83 f8 00                  	cmpq	$0, %rax
+    1a56: 0f 84 02 00 00 00            	je	0x1a5e <_zif_bolt_encrypt+0x15e>
+    1a5c: 0f 0b                        	ud2
+    1a5e: e9 00 00 00 00               	jmp	0x1a63 <_zif_bolt_encrypt+0x163>
+    1a63: e9 00 00 00 00               	jmp	0x1a68 <_zif_bolt_encrypt+0x168>
+    1a68: 8b 85 64 fe ff ff            	movl	-412(%rbp), %eax
+    1a6e: 3b 85 70 fe ff ff            	cmpl	-400(%rbp), %eax
+    1a74: b0 01                        	movb	$1, %al
+    1a76: 88 85 ee fd ff ff            	movb	%al, -530(%rbp)
+    1a7c: 0f 87 17 00 00 00            	ja	0x1a99 <_zif_bolt_encrypt+0x199>
+    1a82: 8a 85 3e fe ff ff            	movb	-450(%rbp), %al
+    1a88: 24 01                        	andb	$1, %al
+    1a8a: 0f b6 c0                     	movzbl	%al, %eax
+    1a8d: 83 f8 00                     	cmpl	$0, %eax
+    1a90: 0f 94 c0                     	sete	%al
+    1a93: 88 85 ee fd ff ff            	movb	%al, -530(%rbp)
+    1a99: 8a 85 ee fd ff ff            	movb	-530(%rbp), %al
+    1a9f: 34 ff                        	xorb	$-1, %al
+    1aa1: 24 01                        	andb	$1, %al
+    1aa3: 0f b6 c0                     	movzbl	%al, %eax
+    1aa6: 48 98                        	cltq
+    1aa8: 48 83 f8 00                  	cmpq	$0, %rax
+    1aac: 0f 84 02 00 00 00            	je	0x1ab4 <_zif_bolt_encrypt+0x1b4>
+    1ab2: 0f 0b                        	ud2
+    1ab4: e9 00 00 00 00               	jmp	0x1ab9 <_zif_bolt_encrypt+0x1b9>
+    1ab9: f6 85 3e fe ff ff 01         	testb	$1, -450(%rbp)
+    1ac0: 0f 84 2e 00 00 00            	je	0x1af4 <_zif_bolt_encrypt+0x1f4>
+    1ac6: 8b 85 64 fe ff ff            	movl	-412(%rbp), %eax
+    1acc: 3b 85 68 fe ff ff            	cmpl	-408(%rbp), %eax
+    1ad2: 0f 97 c0                     	seta	%al
+    1ad5: 34 ff                        	xorb	$-1, %al
+    1ad7: 34 ff                        	xorb	$-1, %al
+    1ad9: 24 01                        	andb	$1, %al
+    1adb: 0f b6 c0                     	movzbl	%al, %eax
+    1ade: 48 98                        	cltq
+    1ae0: 48 83 f8 00                  	cmpq	$0, %rax
+    1ae4: 0f 84 05 00 00 00            	je	0x1aef <_zif_bolt_encrypt+0x1ef>
+    1aea: e9 dd 04 00 00               	jmp	0x1fcc <_zif_bolt_encrypt+0x6cc>
+    1aef: e9 00 00 00 00               	jmp	0x1af4 <_zif_bolt_encrypt+0x1f4>
+    1af4: 48 8b 85 58 fe ff ff         	movq	-424(%rbp), %rax
+    1afb: 48 83 c0 10                  	addq	$16, %rax
+    1aff: 48 89 85 58 fe ff ff         	movq	%rax, -424(%rbp)
+    1b06: 48 8b 85 58 fe ff ff         	movq	-424(%rbp), %rax
+    1b0d: 48 89 85 50 fe ff ff         	movq	%rax, -432(%rbp)
+    1b14: 48 8b 85 50 fe ff ff         	movq	-432(%rbp), %rax
+    1b1b: 48 89 85 c8 fe ff ff         	movq	%rax, -312(%rbp)
+    1b22: 48 8d 85 90 fe ff ff         	leaq	-368(%rbp), %rax
+    1b29: 48 89 85 c0 fe ff ff         	movq	%rax, -320(%rbp)
+    1b30: 48 8d 85 80 fe ff ff         	leaq	-384(%rbp), %rax
+    1b37: 48 89 85 b8 fe ff ff         	movq	%rax, -328(%rbp)
+    1b3e: c6 85 b7 fe ff ff 00         	movb	$0, -329(%rbp)
+    1b45: 48 8b 8d c8 fe ff ff         	movq	-312(%rbp), %rcx
+    1b4c: 8a 85 b7 fe ff ff            	movb	-329(%rbp), %al
+    1b52: 48 89 8d e0 fe ff ff         	movq	%rcx, -288(%rbp)
+    1b59: 48 8d 8d a8 fe ff ff         	leaq	-344(%rbp), %rcx
+    1b60: 48 89 8d d8 fe ff ff         	movq	%rcx, -296(%rbp)
+    1b67: 24 01                        	andb	$1, %al
+    1b69: 88 85 d7 fe ff ff            	movb	%al, -297(%rbp)
+    1b6f: 48 8b 85 e0 fe ff ff         	movq	-288(%rbp), %rax
+    1b76: 48 89 85 f0 fe ff ff         	movq	%rax, -272(%rbp)
+    1b7d: 48 8b 85 f0 fe ff ff         	movq	-272(%rbp), %rax
+    1b84: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    1b88: 83 f8 06                     	cmpl	$6, %eax
+    1b8b: 0f 94 c0                     	sete	%al
+    1b8e: a8 01                        	testb	$1, %al
+    1b90: 0f 85 05 00 00 00            	jne	0x1b9b <_zif_bolt_encrypt+0x29b>
+    1b96: e9 19 00 00 00               	jmp	0x1bb4 <_zif_bolt_encrypt+0x2b4>
+    1b9b: 48 8b 85 e0 fe ff ff         	movq	-288(%rbp), %rax
+    1ba2: 48 8b 08                     	movq	(%rax), %rcx
+    1ba5: 48 8b 85 d8 fe ff ff         	movq	-296(%rbp), %rax
+    1bac: 48 89 08                     	movq	%rcx, (%rax)
+    1baf: e9 62 00 00 00               	jmp	0x1c16 <_zif_bolt_encrypt+0x316>
+    1bb4: f6 85 d7 fe ff ff 01         	testb	$1, -297(%rbp)
+    1bbb: 0f 84 35 00 00 00            	je	0x1bf6 <_zif_bolt_encrypt+0x2f6>
+    1bc1: 48 8b 85 e0 fe ff ff         	movq	-288(%rbp), %rax
+    1bc8: 48 89 85 f8 fe ff ff         	movq	%rax, -264(%rbp)
+    1bcf: 48 8b 85 f8 fe ff ff         	movq	-264(%rbp), %rax
+    1bd6: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    1bda: 83 f8 01                     	cmpl	$1, %eax
+    1bdd: 0f 85 13 00 00 00            	jne	0x1bf6 <_zif_bolt_encrypt+0x2f6>
+    1be3: 48 8b 85 d8 fe ff ff         	movq	-296(%rbp), %rax
+    1bea: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    1bf1: e9 20 00 00 00               	jmp	0x1c16 <_zif_bolt_encrypt+0x316>
+    1bf6: 48 8b bd e0 fe ff ff         	movq	-288(%rbp), %rdi
+    1bfd: 48 8b b5 d8 fe ff ff         	movq	-296(%rbp), %rsi
+    1c04: e8 8b 21 00 00               	callq	0x3d94 <dyld_stub_binder+0x3d94>
+    1c09: 24 01                        	andb	$1, %al
+    1c0b: 88 85 ef fe ff ff            	movb	%al, -273(%rbp)
+    1c11: e9 07 00 00 00               	jmp	0x1c1d <_zif_bolt_encrypt+0x31d>
+    1c16: c6 85 ef fe ff ff 01         	movb	$1, -273(%rbp)
+    1c1d: f6 85 ef fe ff ff 01         	testb	$1, -273(%rbp)
+    1c24: 0f 85 0c 00 00 00            	jne	0x1c36 <_zif_bolt_encrypt+0x336>
+    1c2a: c6 85 d6 fe ff ff 00         	movb	$0, -298(%rbp)
+    1c31: e9 79 00 00 00               	jmp	0x1caf <_zif_bolt_encrypt+0x3af>
+    1c36: f6 85 b7 fe ff ff 01         	testb	$1, -329(%rbp)
+    1c3d: 0f 84 3b 00 00 00            	je	0x1c7e <_zif_bolt_encrypt+0x37e>
+    1c43: 48 83 bd a8 fe ff ff 00      	cmpq	$0, -344(%rbp)
+    1c4b: 0f 95 c0                     	setne	%al
+    1c4e: 34 ff                        	xorb	$-1, %al
+    1c50: a8 01                        	testb	$1, %al
+    1c52: 0f 85 05 00 00 00            	jne	0x1c5d <_zif_bolt_encrypt+0x35d>
+    1c58: e9 21 00 00 00               	jmp	0x1c7e <_zif_bolt_encrypt+0x37e>
+    1c5d: 48 8b 85 c0 fe ff ff         	movq	-320(%rbp), %rax
+    1c64: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    1c6b: 48 8b 85 b8 fe ff ff         	movq	-328(%rbp), %rax
+    1c72: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    1c79: e9 2a 00 00 00               	jmp	0x1ca8 <_zif_bolt_encrypt+0x3a8>
+    1c7e: 48 8b 8d a8 fe ff ff         	movq	-344(%rbp), %rcx
+    1c85: 48 83 c1 18                  	addq	$24, %rcx
+    1c89: 48 8b 85 c0 fe ff ff         	movq	-320(%rbp), %rax
+    1c90: 48 89 08                     	movq	%rcx, (%rax)
+    1c93: 48 8b 85 a8 fe ff ff         	movq	-344(%rbp), %rax
+    1c9a: 48 8b 48 10                  	movq	16(%rax), %rcx
+    1c9e: 48 8b 85 b8 fe ff ff         	movq	-328(%rbp), %rax
+    1ca5: 48 89 08                     	movq	%rcx, (%rax)
+    1ca8: c6 85 d6 fe ff ff 01         	movb	$1, -298(%rbp)
+    1caf: 8a 85 d6 fe ff ff            	movb	-298(%rbp), %al
+    1cb5: 34 ff                        	xorb	$-1, %al
+    1cb7: 34 ff                        	xorb	$-1, %al
+    1cb9: 34 ff                        	xorb	$-1, %al
+    1cbb: 24 01                        	andb	$1, %al
+    1cbd: 0f b6 c0                     	movzbl	%al, %eax
+    1cc0: 48 98                        	cltq
+    1cc2: 48 83 f8 00                  	cmpq	$0, %rax
+    1cc6: 0f 84 19 00 00 00            	je	0x1ce5 <_zif_bolt_encrypt+0x3e5>
+    1ccc: c7 85 4c fe ff ff 04 00 00 00	movl	$4, -436(%rbp)
+    1cd6: c7 85 38 fe ff ff 09 00 00 00	movl	$9, -456(%rbp)
+    1ce0: e9 e7 02 00 00               	jmp	0x1fcc <_zif_bolt_encrypt+0x6cc>
+    1ce5: 8b 85 64 fe ff ff            	movl	-412(%rbp), %eax
+    1ceb: 83 c0 01                     	addl	$1, %eax
+    1cee: 89 85 64 fe ff ff            	movl	%eax, -412(%rbp)
+    1cf4: 8b 85 64 fe ff ff            	movl	-412(%rbp), %eax
+    1cfa: 3b 85 70 fe ff ff            	cmpl	-400(%rbp), %eax
+    1d00: b0 01                        	movb	$1, %al
+    1d02: 88 85 ed fd ff ff            	movb	%al, -531(%rbp)
+    1d08: 0f 86 17 00 00 00            	jbe	0x1d25 <_zif_bolt_encrypt+0x425>
+    1d0e: 8a 85 3e fe ff ff            	movb	-450(%rbp), %al
+    1d14: 24 01                        	andb	$1, %al
+    1d16: 0f b6 c0                     	movzbl	%al, %eax
+    1d19: 83 f8 01                     	cmpl	$1, %eax
+    1d1c: 0f 94 c0                     	sete	%al
+    1d1f: 88 85 ed fd ff ff            	movb	%al, -531(%rbp)
+    1d25: 8a 85 ed fd ff ff            	movb	-531(%rbp), %al
+    1d2b: 34 ff                        	xorb	$-1, %al
+    1d2d: 24 01                        	andb	$1, %al
+    1d2f: 0f b6 c0                     	movzbl	%al, %eax
+    1d32: 48 98                        	cltq
+    1d34: 48 83 f8 00                  	cmpq	$0, %rax
+    1d38: 0f 84 02 00 00 00            	je	0x1d40 <_zif_bolt_encrypt+0x440>
+    1d3e: 0f 0b                        	ud2
+    1d40: e9 00 00 00 00               	jmp	0x1d45 <_zif_bolt_encrypt+0x445>
+    1d45: e9 00 00 00 00               	jmp	0x1d4a <_zif_bolt_encrypt+0x44a>
+    1d4a: 8b 85 64 fe ff ff            	movl	-412(%rbp), %eax
+    1d50: 3b 85 70 fe ff ff            	cmpl	-400(%rbp), %eax
+    1d56: b0 01                        	movb	$1, %al
+    1d58: 88 85 ec fd ff ff            	movb	%al, -532(%rbp)
+    1d5e: 0f 87 17 00 00 00            	ja	0x1d7b <_zif_bolt_encrypt+0x47b>
+    1d64: 8a 85 3e fe ff ff            	movb	-450(%rbp), %al
+    1d6a: 24 01                        	andb	$1, %al
+    1d6c: 0f b6 c0                     	movzbl	%al, %eax
+    1d6f: 83 f8 00                     	cmpl	$0, %eax
+    1d72: 0f 94 c0                     	sete	%al
+    1d75: 88 85 ec fd ff ff            	movb	%al, -532(%rbp)
+    1d7b: 8a 85 ec fd ff ff            	movb	-532(%rbp), %al
+    1d81: 34 ff                        	xorb	$-1, %al
+    1d83: 24 01                        	andb	$1, %al
+    1d85: 0f b6 c0                     	movzbl	%al, %eax
+    1d88: 48 98                        	cltq
+    1d8a: 48 83 f8 00                  	cmpq	$0, %rax
+    1d8e: 0f 84 02 00 00 00            	je	0x1d96 <_zif_bolt_encrypt+0x496>
+    1d94: 0f 0b                        	ud2
+    1d96: e9 00 00 00 00               	jmp	0x1d9b <_zif_bolt_encrypt+0x49b>
+    1d9b: f6 85 3e fe ff ff 01         	testb	$1, -450(%rbp)
+    1da2: 0f 84 2e 00 00 00            	je	0x1dd6 <_zif_bolt_encrypt+0x4d6>
+    1da8: 8b 85 64 fe ff ff            	movl	-412(%rbp), %eax
+    1dae: 3b 85 68 fe ff ff            	cmpl	-408(%rbp), %eax
+    1db4: 0f 97 c0                     	seta	%al
+    1db7: 34 ff                        	xorb	$-1, %al
+    1db9: 34 ff                        	xorb	$-1, %al
+    1dbb: 24 01                        	andb	$1, %al
+    1dbd: 0f b6 c0                     	movzbl	%al, %eax
+    1dc0: 48 98                        	cltq
+    1dc2: 48 83 f8 00                  	cmpq	$0, %rax
+    1dc6: 0f 84 05 00 00 00            	je	0x1dd1 <_zif_bolt_encrypt+0x4d1>
+    1dcc: e9 fb 01 00 00               	jmp	0x1fcc <_zif_bolt_encrypt+0x6cc>
+    1dd1: e9 00 00 00 00               	jmp	0x1dd6 <_zif_bolt_encrypt+0x4d6>
+    1dd6: 48 8b 85 58 fe ff ff         	movq	-424(%rbp), %rax
+    1ddd: 48 83 c0 10                  	addq	$16, %rax
+    1de1: 48 89 85 58 fe ff ff         	movq	%rax, -424(%rbp)
+    1de8: 48 8b 85 58 fe ff ff         	movq	-424(%rbp), %rax
+    1def: 48 89 85 50 fe ff ff         	movq	%rax, -432(%rbp)
+    1df6: 48 8b 85 50 fe ff ff         	movq	-432(%rbp), %rax
+    1dfd: 48 89 85 20 ff ff ff         	movq	%rax, -224(%rbp)
+    1e04: 48 8d 85 88 fe ff ff         	leaq	-376(%rbp), %rax
+    1e0b: 48 89 85 18 ff ff ff         	movq	%rax, -232(%rbp)
+    1e12: 48 8d 85 78 fe ff ff         	leaq	-392(%rbp), %rax
+    1e19: 48 89 85 10 ff ff ff         	movq	%rax, -240(%rbp)
+    1e20: c6 85 0f ff ff ff 00         	movb	$0, -241(%rbp)
+    1e27: 48 8b 8d 20 ff ff ff         	movq	-224(%rbp), %rcx
+    1e2e: 8a 85 0f ff ff ff            	movb	-241(%rbp), %al
+    1e34: 48 89 8d 38 ff ff ff         	movq	%rcx, -200(%rbp)
+    1e3b: 48 8d 8d 00 ff ff ff         	leaq	-256(%rbp), %rcx
+    1e42: 48 89 8d 30 ff ff ff         	movq	%rcx, -208(%rbp)
+    1e49: 24 01                        	andb	$1, %al
+    1e4b: 88 85 2f ff ff ff            	movb	%al, -209(%rbp)
+    1e51: 48 8b 85 38 ff ff ff         	movq	-200(%rbp), %rax
+    1e58: 48 89 85 48 ff ff ff         	movq	%rax, -184(%rbp)
+    1e5f: 48 8b 85 48 ff ff ff         	movq	-184(%rbp), %rax
+    1e66: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    1e6a: 83 f8 06                     	cmpl	$6, %eax
+    1e6d: 0f 94 c0                     	sete	%al
+    1e70: a8 01                        	testb	$1, %al
+    1e72: 0f 85 05 00 00 00            	jne	0x1e7d <_zif_bolt_encrypt+0x57d>
+    1e78: e9 19 00 00 00               	jmp	0x1e96 <_zif_bolt_encrypt+0x596>
+    1e7d: 48 8b 85 38 ff ff ff         	movq	-200(%rbp), %rax
+    1e84: 48 8b 08                     	movq	(%rax), %rcx
+    1e87: 48 8b 85 30 ff ff ff         	movq	-208(%rbp), %rax
+    1e8e: 48 89 08                     	movq	%rcx, (%rax)
+    1e91: e9 62 00 00 00               	jmp	0x1ef8 <_zif_bolt_encrypt+0x5f8>
+    1e96: f6 85 2f ff ff ff 01         	testb	$1, -209(%rbp)
+    1e9d: 0f 84 35 00 00 00            	je	0x1ed8 <_zif_bolt_encrypt+0x5d8>
+    1ea3: 48 8b 85 38 ff ff ff         	movq	-200(%rbp), %rax
+    1eaa: 48 89 85 50 ff ff ff         	movq	%rax, -176(%rbp)
+    1eb1: 48 8b 85 50 ff ff ff         	movq	-176(%rbp), %rax
+    1eb8: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    1ebc: 83 f8 01                     	cmpl	$1, %eax
+    1ebf: 0f 85 13 00 00 00            	jne	0x1ed8 <_zif_bolt_encrypt+0x5d8>
+    1ec5: 48 8b 85 30 ff ff ff         	movq	-208(%rbp), %rax
+    1ecc: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    1ed3: e9 20 00 00 00               	jmp	0x1ef8 <_zif_bolt_encrypt+0x5f8>
+    1ed8: 48 8b bd 38 ff ff ff         	movq	-200(%rbp), %rdi
+    1edf: 48 8b b5 30 ff ff ff         	movq	-208(%rbp), %rsi
+    1ee6: e8 a9 1e 00 00               	callq	0x3d94 <dyld_stub_binder+0x3d94>
+    1eeb: 24 01                        	andb	$1, %al
+    1eed: 88 85 47 ff ff ff            	movb	%al, -185(%rbp)
+    1ef3: e9 07 00 00 00               	jmp	0x1eff <_zif_bolt_encrypt+0x5ff>
+    1ef8: c6 85 47 ff ff ff 01         	movb	$1, -185(%rbp)
+    1eff: f6 85 47 ff ff ff 01         	testb	$1, -185(%rbp)
+    1f06: 0f 85 0c 00 00 00            	jne	0x1f18 <_zif_bolt_encrypt+0x618>
+    1f0c: c6 85 2e ff ff ff 00         	movb	$0, -210(%rbp)
+    1f13: e9 79 00 00 00               	jmp	0x1f91 <_zif_bolt_encrypt+0x691>
+    1f18: f6 85 0f ff ff ff 01         	testb	$1, -241(%rbp)
+    1f1f: 0f 84 3b 00 00 00            	je	0x1f60 <_zif_bolt_encrypt+0x660>
+    1f25: 48 83 bd 00 ff ff ff 00      	cmpq	$0, -256(%rbp)
+    1f2d: 0f 95 c0                     	setne	%al
+    1f30: 34 ff                        	xorb	$-1, %al
+    1f32: a8 01                        	testb	$1, %al
+    1f34: 0f 85 05 00 00 00            	jne	0x1f3f <_zif_bolt_encrypt+0x63f>
+    1f3a: e9 21 00 00 00               	jmp	0x1f60 <_zif_bolt_encrypt+0x660>
+    1f3f: 48 8b 85 18 ff ff ff         	movq	-232(%rbp), %rax
+    1f46: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    1f4d: 48 8b 85 10 ff ff ff         	movq	-240(%rbp), %rax
+    1f54: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    1f5b: e9 2a 00 00 00               	jmp	0x1f8a <_zif_bolt_encrypt+0x68a>
+    1f60: 48 8b 8d 00 ff ff ff         	movq	-256(%rbp), %rcx
+    1f67: 48 83 c1 18                  	addq	$24, %rcx
+    1f6b: 48 8b 85 18 ff ff ff         	movq	-232(%rbp), %rax
+    1f72: 48 89 08                     	movq	%rcx, (%rax)
+    1f75: 48 8b 85 00 ff ff ff         	movq	-256(%rbp), %rax
+    1f7c: 48 8b 48 10                  	movq	16(%rax), %rcx
+    1f80: 48 8b 85 10 ff ff ff         	movq	-240(%rbp), %rax
+    1f87: 48 89 08                     	movq	%rcx, (%rax)
+    1f8a: c6 85 2e ff ff ff 01         	movb	$1, -210(%rbp)
+    1f91: 8a 85 2e ff ff ff            	movb	-210(%rbp), %al
+    1f97: 34 ff                        	xorb	$-1, %al
+    1f99: 34 ff                        	xorb	$-1, %al
+    1f9b: 34 ff                        	xorb	$-1, %al
+    1f9d: 24 01                        	andb	$1, %al
+    1f9f: 0f b6 c0                     	movzbl	%al, %eax
+    1fa2: 48 98                        	cltq
+    1fa4: 48 83 f8 00                  	cmpq	$0, %rax
+    1fa8: 0f 84 19 00 00 00            	je	0x1fc7 <_zif_bolt_encrypt+0x6c7>
+    1fae: c7 85 4c fe ff ff 04 00 00 00	movl	$4, -436(%rbp)
+    1fb8: c7 85 38 fe ff ff 09 00 00 00	movl	$9, -456(%rbp)
+    1fc2: e9 05 00 00 00               	jmp	0x1fcc <_zif_bolt_encrypt+0x6cc>
+    1fc7: e9 00 00 00 00               	jmp	0x1fcc <_zif_bolt_encrypt+0x6cc>
+    1fcc: 83 bd 38 fe ff ff 00         	cmpl	$0, -456(%rbp)
+    1fd3: 0f 95 c0                     	setne	%al
+    1fd6: 34 ff                        	xorb	$-1, %al
+    1fd8: 34 ff                        	xorb	$-1, %al
+    1fda: 24 01                        	andb	$1, %al
+    1fdc: 0f b6 c0                     	movzbl	%al, %eax
+    1fdf: 48 98                        	cltq
+    1fe1: 48 83 f8 00                  	cmpq	$0, %rax
+    1fe5: 0f 84 2a 00 00 00            	je	0x2015 <_zif_bolt_encrypt+0x715>
+    1feb: 8b bd 38 fe ff ff            	movl	-456(%rbp), %edi
+    1ff1: 8b b5 64 fe ff ff            	movl	-412(%rbp), %esi
+    1ff7: 48 8b 95 40 fe ff ff         	movq	-448(%rbp), %rdx
+    1ffe: 8b 8d 4c fe ff ff            	movl	-436(%rbp), %ecx
+    2004: 4c 8b 85 50 fe ff ff         	movq	-432(%rbp), %r8
+    200b: e8 90 1d 00 00               	callq	0x3da0 <dyld_stub_binder+0x3da0>
+    2010: e9 4e 05 00 00               	jmp	0x2563 <_zif_bolt_encrypt+0xc63>
+    2015: e9 00 00 00 00               	jmp	0x201a <_zif_bolt_encrypt+0x71a>
+    201a: 48 8b 85 80 fe ff ff         	movq	-384(%rbp), %rax
+    2021: 48 89 85 30 fe ff ff         	movq	%rax, -464(%rbp)
+    2028: 48 8b 85 30 fe ff ff         	movq	-464(%rbp), %rax
+    202f: 48 89 85 68 ff ff ff         	movq	%rax, -152(%rbp)
+    2036: c6 85 67 ff ff ff 00         	movb	$0, -153(%rbp)
+    203d: f6 85 67 ff ff ff 01         	testb	$1, -153(%rbp)
+    2044: 0f 84 2c 00 00 00            	je	0x2076 <_zif_bolt_encrypt+0x776>
+    204a: 48 8b bd 68 ff ff ff         	movq	-152(%rbp), %rdi
+    2051: 48 83 c7 18                  	addq	$24, %rdi
+    2055: 48 83 c7 01                  	addq	$1, %rdi
+    2059: 48 83 c7 08                  	addq	$8, %rdi
+    205d: 48 83 ef 01                  	subq	$1, %rdi
+    2061: 48 83 e7 f8                  	andq	$-8, %rdi
+    2065: e8 a6 1c 00 00               	callq	0x3d10 <dyld_stub_binder+0x3d10>
+    206a: 48 89 85 e0 fd ff ff         	movq	%rax, -544(%rbp)
+    2071: e9 3a 00 00 00               	jmp	0x20b0 <_zif_bolt_encrypt+0x7b0>
+    2076: 48 8b bd 68 ff ff ff         	movq	-152(%rbp), %rdi
+    207d: 48 83 c7 18                  	addq	$24, %rdi
+    2081: 48 83 c7 01                  	addq	$1, %rdi
+    2085: 48 83 c7 08                  	addq	$8, %rdi
+    2089: 48 83 ef 01                  	subq	$1, %rdi
+    208d: 48 83 e7 f8                  	andq	$-8, %rdi
+    2091: e8 8c 1c 00 00               	callq	0x3d22 <dyld_stub_binder+0x3d22>
+    2096: 48 89 85 d8 fd ff ff         	movq	%rax, -552(%rbp)
+    209d: 48 8b 85 d8 fd ff ff         	movq	-552(%rbp), %rax
+    20a4: 48 89 85 e0 fd ff ff         	movq	%rax, -544(%rbp)
+    20ab: e9 00 00 00 00               	jmp	0x20b0 <_zif_bolt_encrypt+0x7b0>
+    20b0: 48 8b 85 e0 fd ff ff         	movq	-544(%rbp), %rax
+    20b7: 31 c9                        	xorl	%ecx, %ecx
+    20b9: 48 89 85 58 ff ff ff         	movq	%rax, -168(%rbp)
+    20c0: 48 8b 85 58 ff ff ff         	movq	-168(%rbp), %rax
+    20c7: 48 89 85 78 ff ff ff         	movq	%rax, -136(%rbp)
+    20ce: c7 85 74 ff ff ff 01 00 00 00	movl	$1, -140(%rbp)
+    20d8: 8b 95 74 ff ff ff            	movl	-140(%rbp), %edx
+    20de: 48 8b 85 78 ff ff ff         	movq	-136(%rbp), %rax
+    20e5: 89 10                        	movl	%edx, (%rax)
+    20e7: 8a 85 67 ff ff ff            	movb	-153(%rbp), %al
+    20ed: a8 01                        	testb	$1, %al
+    20ef: b8 80 00 00 00               	movl	$128, %eax
+    20f4: 0f 45 c8                     	cmovnel	%eax, %ecx
+    20f7: 83 c9 16                     	orl	$22, %ecx
+    20fa: 48 8b 85 58 ff ff ff         	movq	-168(%rbp), %rax
+    2101: 89 48 04                     	movl	%ecx, 4(%rax)
+    2104: 48 8b 85 58 ff ff ff         	movq	-168(%rbp), %rax
+    210b: 48 c7 40 08 00 00 00 00      	movq	$0, 8(%rax)
+    2113: 48 8b 8d 68 ff ff ff         	movq	-152(%rbp), %rcx
+    211a: 48 8b 85 58 ff ff ff         	movq	-168(%rbp), %rax
+    2121: 48 89 48 10                  	movq	%rcx, 16(%rax)
+    2125: 48 8b 85 58 ff ff ff         	movq	-168(%rbp), %rax
+    212c: 48 89 85 28 fe ff ff         	movq	%rax, -472(%rbp)
+    2133: 48 8b 85 78 fe ff ff         	movq	-392(%rbp), %rax
+    213a: 48 89 85 20 fe ff ff         	movq	%rax, -480(%rbp)
+    2141: 48 8b 8d 88 fe ff ff         	movq	-376(%rbp), %rcx
+    2148: 48 8b 85 20 fe ff ff         	movq	-480(%rbp), %rax
+    214f: 48 89 4d 98                  	movq	%rcx, -104(%rbp)
+    2153: 48 89 45 90                  	movq	%rax, -112(%rbp)
+    2157: c6 45 8f 00                  	movb	$0, -113(%rbp)
+    215b: 48 8b 4d 90                  	movq	-112(%rbp), %rcx
+    215f: 8a 45 8f                     	movb	-113(%rbp), %al
+    2162: 48 89 4d b0                  	movq	%rcx, -80(%rbp)
+    2166: 24 01                        	andb	$1, %al
+    2168: 88 45 af                     	movb	%al, -81(%rbp)
+    216b: f6 45 af 01                  	testb	$1, -81(%rbp)
+    216f: 0f 84 29 00 00 00            	je	0x219e <_zif_bolt_encrypt+0x89e>
+    2175: 48 8b 7d b0                  	movq	-80(%rbp), %rdi
+    2179: 48 83 c7 18                  	addq	$24, %rdi
+    217d: 48 83 c7 01                  	addq	$1, %rdi
+    2181: 48 83 c7 08                  	addq	$8, %rdi
+    2185: 48 83 ef 01                  	subq	$1, %rdi
+    2189: 48 83 e7 f8                  	andq	$-8, %rdi
+    218d: e8 7e 1b 00 00               	callq	0x3d10 <dyld_stub_binder+0x3d10>
+    2192: 48 89 85 d0 fd ff ff         	movq	%rax, -560(%rbp)
+    2199: e9 37 00 00 00               	jmp	0x21d5 <_zif_bolt_encrypt+0x8d5>
+    219e: 48 8b 7d b0                  	movq	-80(%rbp), %rdi
+    21a2: 48 83 c7 18                  	addq	$24, %rdi
+    21a6: 48 83 c7 01                  	addq	$1, %rdi
+    21aa: 48 83 c7 08                  	addq	$8, %rdi
+    21ae: 48 83 ef 01                  	subq	$1, %rdi
+    21b2: 48 83 e7 f8                  	andq	$-8, %rdi
+    21b6: e8 67 1b 00 00               	callq	0x3d22 <dyld_stub_binder+0x3d22>
+    21bb: 48 89 85 c8 fd ff ff         	movq	%rax, -568(%rbp)
+    21c2: 48 8b 85 c8 fd ff ff         	movq	-568(%rbp), %rax
+    21c9: 48 89 85 d0 fd ff ff         	movq	%rax, -560(%rbp)
+    21d0: e9 00 00 00 00               	jmp	0x21d5 <_zif_bolt_encrypt+0x8d5>
+    21d5: 48 8b 85 d0 fd ff ff         	movq	-560(%rbp), %rax
+    21dc: 31 c9                        	xorl	%ecx, %ecx
+    21de: 48 89 45 a0                  	movq	%rax, -96(%rbp)
+    21e2: 48 8b 45 a0                  	movq	-96(%rbp), %rax
+    21e6: 48 89 45 c0                  	movq	%rax, -64(%rbp)
+    21ea: c7 45 bc 01 00 00 00         	movl	$1, -68(%rbp)
+    21f1: 8b 55 bc                     	movl	-68(%rbp), %edx
+    21f4: 48 8b 45 c0                  	movq	-64(%rbp), %rax
+    21f8: 89 10                        	movl	%edx, (%rax)
+    21fa: 8a 45 af                     	movb	-81(%rbp), %al
+    21fd: a8 01                        	testb	$1, %al
+    21ff: b8 80 00 00 00               	movl	$128, %eax
+    2204: 0f 45 c8                     	cmovnel	%eax, %ecx
+    2207: 83 c9 16                     	orl	$22, %ecx
+    220a: 48 8b 45 a0                  	movq	-96(%rbp), %rax
+    220e: 89 48 04                     	movl	%ecx, 4(%rax)
+    2211: 48 8b 45 a0                  	movq	-96(%rbp), %rax
+    2215: 48 c7 40 08 00 00 00 00      	movq	$0, 8(%rax)
+    221d: 48 8b 4d b0                  	movq	-80(%rbp), %rcx
+    2221: 48 8b 45 a0                  	movq	-96(%rbp), %rax
+    2225: 48 89 48 10                  	movq	%rcx, 16(%rax)
+    2229: 48 8b 45 a0                  	movq	-96(%rbp), %rax
+    222d: 48 89 45 80                  	movq	%rax, -128(%rbp)
+    2231: 48 8b 7d 80                  	movq	-128(%rbp), %rdi
+    2235: 48 83 c7 18                  	addq	$24, %rdi
+    2239: 48 8b 75 98                  	movq	-104(%rbp), %rsi
+    223d: 48 8b 55 90                  	movq	-112(%rbp), %rdx
+    2241: 48 c7 c1 ff ff ff ff         	movq	$-1, %rcx
+    2248: e8 b1 1a 00 00               	callq	0x3cfe <dyld_stub_binder+0x3cfe>
+    224d: 48 8b 45 80                  	movq	-128(%rbp), %rax
+    2251: 48 8b 4d 90                  	movq	-112(%rbp), %rcx
+    2255: c6 44 08 18 00               	movb	$0, 24(%rax,%rcx)
+    225a: 48 8b 45 80                  	movq	-128(%rbp), %rax
+    225e: 48 89 85 10 fe ff ff         	movq	%rax, -496(%rbp)
+    2265: 48 8b 85 10 fe ff ff         	movq	-496(%rbp), %rax
+    226c: 8a 40 19                     	movb	25(%rax), %al
+    226f: 88 85 1f fe ff ff            	movb	%al, -481(%rbp)
+    2275: 48 8b 85 10 fe ff ff         	movq	-496(%rbp), %rax
+    227c: 48 8b 8d 20 fe ff ff         	movq	-480(%rbp), %rcx
+    2283: 48 83 e9 01                  	subq	$1, %rcx
+    2287: 8a 4c 08 18                  	movb	24(%rax,%rcx), %cl
+    228b: 48 8b 85 10 fe ff ff         	movq	-496(%rbp), %rax
+    2292: 88 48 19                     	movb	%cl, 25(%rax)
+    2295: 8a 95 1f fe ff ff            	movb	-481(%rbp), %dl
+    229b: 48 8b 85 10 fe ff ff         	movq	-496(%rbp), %rax
+    22a2: 48 8b 8d 20 fe ff ff         	movq	-480(%rbp), %rcx
+    22a9: 48 83 e9 01                  	subq	$1, %rcx
+    22ad: 88 54 08 18                  	movb	%dl, 24(%rax,%rcx)
+    22b1: c7 85 0c fe ff ff 00 00 00 00	movl	$0, -500(%rbp)
+    22bb: c7 85 08 fe ff ff 00 00 00 00	movl	$0, -504(%rbp)
+    22c5: 48 63 85 08 fe ff ff         	movslq	-504(%rbp), %rax
+    22cc: 48 3b 85 30 fe ff ff         	cmpq	-464(%rbp), %rax
+    22d3: 0f 83 a5 00 00 00            	jae	0x237e <_zif_bolt_encrypt+0xa7e>
+    22d9: c7 85 0c fe ff ff 00 00 00 00	movl	$0, -500(%rbp)
+    22e3: 48 8b 85 90 fe ff ff         	movq	-368(%rbp), %rax
+    22ea: 48 63 8d 08 fe ff ff         	movslq	-504(%rbp), %rcx
+    22f1: 8a 14 08                     	movb	(%rax,%rcx), %dl
+    22f4: 48 8b 85 28 fe ff ff         	movq	-472(%rbp), %rax
+    22fb: 48 63 8d 08 fe ff ff         	movslq	-504(%rbp), %rcx
+    2302: 88 54 08 18                  	movb	%dl, 24(%rax,%rcx)
+    2306: 48 63 85 0c fe ff ff         	movslq	-500(%rbp), %rax
+    230d: 48 3b 85 20 fe ff ff         	cmpq	-480(%rbp), %rax
+    2314: 0f 83 50 00 00 00            	jae	0x236a <_zif_bolt_encrypt+0xa6a>
+    231a: 48 8b 85 28 fe ff ff         	movq	-472(%rbp), %rax
+    2321: 48 63 8d 08 fe ff ff         	movslq	-504(%rbp), %rcx
+    2328: 0f be 44 08 18               	movsbl	24(%rax,%rcx), %eax
+    232d: 48 8b 8d 10 fe ff ff         	movq	-496(%rbp), %rcx
+    2334: 48 63 95 0c fe ff ff         	movslq	-500(%rbp), %rdx
+    233b: 0f be 4c 11 18               	movsbl	24(%rcx,%rdx), %ecx
+    2340: 01 c8                        	addl	%ecx, %eax
+    2342: 88 c2                        	movb	%al, %dl
+    2344: 48 8b 85 28 fe ff ff         	movq	-472(%rbp), %rax
+    234b: 48 63 8d 08 fe ff ff         	movslq	-504(%rbp), %rcx
+    2352: 88 54 08 18                  	movb	%dl, 24(%rax,%rcx)
+    2356: 8b 85 0c fe ff ff            	movl	-500(%rbp), %eax
+    235c: 83 c0 01                     	addl	$1, %eax
+    235f: 89 85 0c fe ff ff            	movl	%eax, -500(%rbp)
+    2365: e9 9c ff ff ff               	jmp	0x2306 <_zif_bolt_encrypt+0xa06>
+    236a: 8b 85 08 fe ff ff            	movl	-504(%rbp), %eax
+    2370: 83 c0 01                     	addl	$1, %eax
+    2373: 89 85 08 fe ff ff            	movl	%eax, -504(%rbp)
+    2379: e9 47 ff ff ff               	jmp	0x22c5 <_zif_bolt_encrypt+0x9c5>
+    237e: 48 8b 85 28 fe ff ff         	movq	-472(%rbp), %rax
+    2385: 48 63 8d 08 fe ff ff         	movslq	-504(%rbp), %rcx
+    238c: c6 44 08 18 00               	movb	$0, 24(%rax,%rcx)
+    2391: 48 8b bd 28 fe ff ff         	movq	-472(%rbp), %rdi
+    2398: 48 83 c7 18                  	addq	$24, %rdi
+    239c: 48 8b 85 28 fe ff ff         	movq	-472(%rbp), %rax
+    23a3: 48 8b 70 10                  	movq	16(%rax), %rsi
+    23a7: e8 ac 19 00 00               	callq	0x3d58 <dyld_stub_binder+0x3d58>
+    23ac: 48 89 85 00 fe ff ff         	movq	%rax, -512(%rbp)
+    23b3: 48 8b 85 28 fe ff ff         	movq	-472(%rbp), %rax
+    23ba: 48 89 45 c8                  	movq	%rax, -56(%rbp)
+    23be: 48 8b 45 c8                  	movq	-56(%rbp), %rax
+    23c2: 8b 40 04                     	movl	4(%rax), %eax
+    23c5: 89 45 d0                     	movl	%eax, -48(%rbp)
+    23c8: 8b 45 d0                     	movl	-48(%rbp), %eax
+    23cb: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    23d0: 83 e0 40                     	andl	$64, %eax
+    23d3: 83 f8 00                     	cmpl	$0, %eax
+    23d6: 0f 85 78 00 00 00            	jne	0x2454 <_zif_bolt_encrypt+0xb54>
+    23dc: 48 8b 45 c8                  	movq	-56(%rbp), %rax
+    23e0: 48 89 45 d8                  	movq	%rax, -40(%rbp)
+    23e4: 48 8b 45 d8                  	movq	-40(%rbp), %rax
+    23e8: 83 38 00                     	cmpl	$0, (%rax)
+    23eb: 0f 97 c0                     	seta	%al
+    23ee: 34 ff                        	xorb	$-1, %al
+    23f0: a8 01                        	testb	$1, %al
+    23f2: 0f 85 05 00 00 00            	jne	0x23fd <_zif_bolt_encrypt+0xafd>
+    23f8: e9 02 00 00 00               	jmp	0x23ff <_zif_bolt_encrypt+0xaff>
+    23fd: 0f 0b                        	ud2
+    23ff: 48 8b 4d d8                  	movq	-40(%rbp), %rcx
+    2403: 8b 01                        	movl	(%rcx), %eax
+    2405: 83 c0 ff                     	addl	$-1, %eax
+    2408: 89 01                        	movl	%eax, (%rcx)
+    240a: 83 f8 00                     	cmpl	$0, %eax
+    240d: 0f 85 3c 00 00 00            	jne	0x244f <_zif_bolt_encrypt+0xb4f>
+    2413: 48 8b 45 c8                  	movq	-56(%rbp), %rax
+    2417: 8b 40 04                     	movl	4(%rax), %eax
+    241a: 89 45 d4                     	movl	%eax, -44(%rbp)
+    241d: 8b 45 d4                     	movl	-44(%rbp), %eax
+    2420: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    2425: 25 80 00 00 00               	andl	$128, %eax
+    242a: 83 f8 00                     	cmpl	$0, %eax
+    242d: 0f 84 0e 00 00 00            	je	0x2441 <_zif_bolt_encrypt+0xb41>
+    2433: 48 8b 7d c8                  	movq	-56(%rbp), %rdi
+    2437: e8 10 19 00 00               	callq	0x3d4c <dyld_stub_binder+0x3d4c>
+    243c: e9 09 00 00 00               	jmp	0x244a <_zif_bolt_encrypt+0xb4a>
+    2441: 48 8b 7d c8                  	movq	-56(%rbp), %rdi
+    2445: e8 cc 18 00 00               	callq	0x3d16 <dyld_stub_binder+0x3d16>
+    244a: e9 00 00 00 00               	jmp	0x244f <_zif_bolt_encrypt+0xb4f>
+    244f: e9 00 00 00 00               	jmp	0x2454 <_zif_bolt_encrypt+0xb54>
+    2454: 48 8b 85 10 fe ff ff         	movq	-496(%rbp), %rax
+    245b: 48 89 45 e0                  	movq	%rax, -32(%rbp)
+    245f: 48 8b 45 e0                  	movq	-32(%rbp), %rax
+    2463: 8b 40 04                     	movl	4(%rax), %eax
+    2466: 89 45 e8                     	movl	%eax, -24(%rbp)
+    2469: 8b 45 e8                     	movl	-24(%rbp), %eax
+    246c: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    2471: 83 e0 40                     	andl	$64, %eax
+    2474: 83 f8 00                     	cmpl	$0, %eax
+    2477: 0f 85 78 00 00 00            	jne	0x24f5 <_zif_bolt_encrypt+0xbf5>
+    247d: 48 8b 45 e0                  	movq	-32(%rbp), %rax
+    2481: 48 89 45 f0                  	movq	%rax, -16(%rbp)
+    2485: 48 8b 45 f0                  	movq	-16(%rbp), %rax
+    2489: 83 38 00                     	cmpl	$0, (%rax)
+    248c: 0f 97 c0                     	seta	%al
+    248f: 34 ff                        	xorb	$-1, %al
+    2491: a8 01                        	testb	$1, %al
+    2493: 0f 85 05 00 00 00            	jne	0x249e <_zif_bolt_encrypt+0xb9e>
+    2499: e9 02 00 00 00               	jmp	0x24a0 <_zif_bolt_encrypt+0xba0>
+    249e: 0f 0b                        	ud2
+    24a0: 48 8b 4d f0                  	movq	-16(%rbp), %rcx
+    24a4: 8b 01                        	movl	(%rcx), %eax
+    24a6: 83 c0 ff                     	addl	$-1, %eax
+    24a9: 89 01                        	movl	%eax, (%rcx)
+    24ab: 83 f8 00                     	cmpl	$0, %eax
+    24ae: 0f 85 3c 00 00 00            	jne	0x24f0 <_zif_bolt_encrypt+0xbf0>
+    24b4: 48 8b 45 e0                  	movq	-32(%rbp), %rax
+    24b8: 8b 40 04                     	movl	4(%rax), %eax
+    24bb: 89 45 ec                     	movl	%eax, -20(%rbp)
+    24be: 8b 45 ec                     	movl	-20(%rbp), %eax
+    24c1: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    24c6: 25 80 00 00 00               	andl	$128, %eax
+    24cb: 83 f8 00                     	cmpl	$0, %eax
+    24ce: 0f 84 0e 00 00 00            	je	0x24e2 <_zif_bolt_encrypt+0xbe2>
+    24d4: 48 8b 7d e0                  	movq	-32(%rbp), %rdi
+    24d8: e8 6f 18 00 00               	callq	0x3d4c <dyld_stub_binder+0x3d4c>
+    24dd: e9 09 00 00 00               	jmp	0x24eb <_zif_bolt_encrypt+0xbeb>
+    24e2: 48 8b 7d e0                  	movq	-32(%rbp), %rdi
+    24e6: e8 2b 18 00 00               	callq	0x3d16 <dyld_stub_binder+0x3d16>
+    24eb: e9 00 00 00 00               	jmp	0x24f0 <_zif_bolt_encrypt+0xbf0>
+    24f0: e9 00 00 00 00               	jmp	0x24f5 <_zif_bolt_encrypt+0xbf5>
+    24f5: e9 00 00 00 00               	jmp	0x24fa <_zif_bolt_encrypt+0xbfa>
+    24fa: e9 00 00 00 00               	jmp	0x24ff <_zif_bolt_encrypt+0xbff>
+    24ff: 48 8b 85 98 fe ff ff         	movq	-360(%rbp), %rax
+    2506: 48 89 85 f8 fd ff ff         	movq	%rax, -520(%rbp)
+    250d: 48 8b 85 00 fe ff ff         	movq	-512(%rbp), %rax
+    2514: 48 89 85 f0 fd ff ff         	movq	%rax, -528(%rbp)
+    251b: 48 8b 8d f0 fd ff ff         	movq	-528(%rbp), %rcx
+    2522: 48 8b 85 f8 fd ff ff         	movq	-520(%rbp), %rax
+    2529: 48 89 08                     	movq	%rcx, (%rax)
+    252c: 48 8b 85 f0 fd ff ff         	movq	-528(%rbp), %rax
+    2533: 8b 40 04                     	movl	4(%rax), %eax
+    2536: 89 45 fc                     	movl	%eax, -4(%rbp)
+    2539: 8b 45 fc                     	movl	-4(%rbp), %eax
+    253c: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    2541: 83 e0 40                     	andl	$64, %eax
+    2544: 83 f8 00                     	cmpl	$0, %eax
+    2547: b8 06 00 00 00               	movl	$6, %eax
+    254c: b9 06 01 00 00               	movl	$262, %ecx              ## imm = 0x106
+    2551: 0f 45 c8                     	cmovnel	%eax, %ecx
+    2554: 48 8b 85 f8 fd ff ff         	movq	-520(%rbp), %rax
+    255b: 89 48 08                     	movl	%ecx, 8(%rax)
+    255e: e9 00 00 00 00               	jmp	0x2563 <_zif_bolt_encrypt+0xc63>
+    2563: 48 81 c4 40 02 00 00         	addq	$576, %rsp              ## imm = 0x240
+    256a: 5d                           	popq	%rbp
+    256b: c3                           	retq
+    256c: 0f 1f 40 00                  	nopl	(%rax)
+
+0000000000002570 <_zif_bolt_decrypt>:
+    2570: 55                           	pushq	%rbp
+    2571: 48 89 e5                     	movq	%rsp, %rbp
+    2574: 48 81 ec 30 03 00 00         	subq	$816, %rsp              ## imm = 0x330
+    257b: 48 89 bd 08 fe ff ff         	movq	%rdi, -504(%rbp)
+    2582: 48 89 b5 00 fe ff ff         	movq	%rsi, -512(%rbp)
+    2589: c7 85 dc fd ff ff 00 00 00 00	movl	$0, -548(%rbp)
+    2593: c7 85 d8 fd ff ff 02 00 00 00	movl	$2, -552(%rbp)
+    259d: c7 85 d4 fd ff ff 02 00 00 00	movl	$2, -556(%rbp)
+    25a7: 48 8b 85 08 fe ff ff         	movq	-504(%rbp), %rax
+    25ae: 8b 40 2c                     	movl	44(%rax), %eax
+    25b1: 89 85 d0 fd ff ff            	movl	%eax, -560(%rbp)
+    25b7: c7 85 cc fd ff ff 00 00 00 00	movl	$0, -564(%rbp)
+    25c1: 48 c7 85 b8 fd ff ff 00 00 00 00     	movq	$0, -584(%rbp)
+    25cc: c7 85 b4 fd ff ff 00 00 00 00	movl	$0, -588(%rbp)
+    25d6: 48 c7 85 a8 fd ff ff 00 00 00 00     	movq	$0, -600(%rbp)
+    25e1: c6 85 a7 fd ff ff 00         	movb	$0, -601(%rbp)
+    25e8: c6 85 a6 fd ff ff 00         	movb	$0, -602(%rbp)
+    25ef: c7 85 a0 fd ff ff 00 00 00 00	movl	$0, -608(%rbp)
+    25f9: 8b 85 d0 fd ff ff            	movl	-560(%rbp), %eax
+    25ff: 3b 85 d8 fd ff ff            	cmpl	-552(%rbp), %eax
+    2605: 0f 92 c0                     	setb	%al
+    2608: 34 ff                        	xorb	$-1, %al
+    260a: 34 ff                        	xorb	$-1, %al
+    260c: 24 01                        	andb	$1, %al
+    260e: 0f b6 c0                     	movzbl	%al, %eax
+    2611: 48 98                        	cltq
+    2613: 48 83 f8 00                  	cmpq	$0, %rax
+    2617: 0f 85 24 00 00 00            	jne	0x2641 <_zif_bolt_decrypt+0xd1>
+    261d: 8b 85 d0 fd ff ff            	movl	-560(%rbp), %eax
+    2623: 3b 85 d4 fd ff ff            	cmpl	-556(%rbp), %eax
+    2629: 0f 97 c0                     	seta	%al
+    262c: 34 ff                        	xorb	$-1, %al
+    262e: 34 ff                        	xorb	$-1, %al
+    2630: 24 01                        	andb	$1, %al
+    2632: 0f b6 c0                     	movzbl	%al, %eax
+    2635: 48 98                        	cltq
+    2637: 48 83 f8 00                  	cmpq	$0, %rax
+    263b: 0f 84 20 00 00 00            	je	0x2661 <_zif_bolt_decrypt+0xf1>
+    2641: 8b bd d8 fd ff ff            	movl	-552(%rbp), %edi
+    2647: 8b b5 d4 fd ff ff            	movl	-556(%rbp), %esi
+    264d: e8 54 17 00 00               	callq	0x3da6 <dyld_stub_binder+0x3da6>
+    2652: c7 85 a0 fd ff ff 01 00 00 00	movl	$1, -608(%rbp)
+    265c: e9 db 05 00 00               	jmp	0x2c3c <_zif_bolt_decrypt+0x6cc>
+    2661: 48 8b 85 08 fe ff ff         	movq	-504(%rbp), %rax
+    2668: 48 83 c0 40                  	addq	$64, %rax
+    266c: 48 89 85 c0 fd ff ff         	movq	%rax, -576(%rbp)
+    2673: 8b 85 cc fd ff ff            	movl	-564(%rbp), %eax
+    2679: 83 c0 01                     	addl	$1, %eax
+    267c: 89 85 cc fd ff ff            	movl	%eax, -564(%rbp)
+    2682: 8b 85 cc fd ff ff            	movl	-564(%rbp), %eax
+    2688: 3b 85 d8 fd ff ff            	cmpl	-552(%rbp), %eax
+    268e: b0 01                        	movb	$1, %al
+    2690: 88 85 37 fd ff ff            	movb	%al, -713(%rbp)
+    2696: 0f 86 17 00 00 00            	jbe	0x26b3 <_zif_bolt_decrypt+0x143>
+    269c: 8a 85 a6 fd ff ff            	movb	-602(%rbp), %al
+    26a2: 24 01                        	andb	$1, %al
+    26a4: 0f b6 c0                     	movzbl	%al, %eax
+    26a7: 83 f8 01                     	cmpl	$1, %eax
+    26aa: 0f 94 c0                     	sete	%al
+    26ad: 88 85 37 fd ff ff            	movb	%al, -713(%rbp)
+    26b3: 8a 85 37 fd ff ff            	movb	-713(%rbp), %al
+    26b9: 34 ff                        	xorb	$-1, %al
+    26bb: 24 01                        	andb	$1, %al
+    26bd: 0f b6 c0                     	movzbl	%al, %eax
+    26c0: 48 98                        	cltq
+    26c2: 48 83 f8 00                  	cmpq	$0, %rax
+    26c6: 0f 84 02 00 00 00            	je	0x26ce <_zif_bolt_decrypt+0x15e>
+    26cc: 0f 0b                        	ud2
+    26ce: e9 00 00 00 00               	jmp	0x26d3 <_zif_bolt_decrypt+0x163>
+    26d3: e9 00 00 00 00               	jmp	0x26d8 <_zif_bolt_decrypt+0x168>
+    26d8: 8b 85 cc fd ff ff            	movl	-564(%rbp), %eax
+    26de: 3b 85 d8 fd ff ff            	cmpl	-552(%rbp), %eax
+    26e4: b0 01                        	movb	$1, %al
+    26e6: 88 85 36 fd ff ff            	movb	%al, -714(%rbp)
+    26ec: 0f 87 17 00 00 00            	ja	0x2709 <_zif_bolt_decrypt+0x199>
+    26f2: 8a 85 a6 fd ff ff            	movb	-602(%rbp), %al
+    26f8: 24 01                        	andb	$1, %al
+    26fa: 0f b6 c0                     	movzbl	%al, %eax
+    26fd: 83 f8 00                     	cmpl	$0, %eax
+    2700: 0f 94 c0                     	sete	%al
+    2703: 88 85 36 fd ff ff            	movb	%al, -714(%rbp)
+    2709: 8a 85 36 fd ff ff            	movb	-714(%rbp), %al
+    270f: 34 ff                        	xorb	$-1, %al
+    2711: 24 01                        	andb	$1, %al
+    2713: 0f b6 c0                     	movzbl	%al, %eax
+    2716: 48 98                        	cltq
+    2718: 48 83 f8 00                  	cmpq	$0, %rax
+    271c: 0f 84 02 00 00 00            	je	0x2724 <_zif_bolt_decrypt+0x1b4>
+    2722: 0f 0b                        	ud2
+    2724: e9 00 00 00 00               	jmp	0x2729 <_zif_bolt_decrypt+0x1b9>
+    2729: f6 85 a6 fd ff ff 01         	testb	$1, -602(%rbp)
+    2730: 0f 84 2e 00 00 00            	je	0x2764 <_zif_bolt_decrypt+0x1f4>
+    2736: 8b 85 cc fd ff ff            	movl	-564(%rbp), %eax
+    273c: 3b 85 d0 fd ff ff            	cmpl	-560(%rbp), %eax
+    2742: 0f 97 c0                     	seta	%al
+    2745: 34 ff                        	xorb	$-1, %al
+    2747: 34 ff                        	xorb	$-1, %al
+    2749: 24 01                        	andb	$1, %al
+    274b: 0f b6 c0                     	movzbl	%al, %eax
+    274e: 48 98                        	cltq
+    2750: 48 83 f8 00                  	cmpq	$0, %rax
+    2754: 0f 84 05 00 00 00            	je	0x275f <_zif_bolt_decrypt+0x1ef>
+    275a: e9 dd 04 00 00               	jmp	0x2c3c <_zif_bolt_decrypt+0x6cc>
+    275f: e9 00 00 00 00               	jmp	0x2764 <_zif_bolt_decrypt+0x1f4>
+    2764: 48 8b 85 c0 fd ff ff         	movq	-576(%rbp), %rax
+    276b: 48 83 c0 10                  	addq	$16, %rax
+    276f: 48 89 85 c0 fd ff ff         	movq	%rax, -576(%rbp)
+    2776: 48 8b 85 c0 fd ff ff         	movq	-576(%rbp), %rax
+    277d: 48 89 85 b8 fd ff ff         	movq	%rax, -584(%rbp)
+    2784: 48 8b 85 b8 fd ff ff         	movq	-584(%rbp), %rax
+    278b: 48 89 85 30 fe ff ff         	movq	%rax, -464(%rbp)
+    2792: 48 8d 85 f8 fd ff ff         	leaq	-520(%rbp), %rax
+    2799: 48 89 85 28 fe ff ff         	movq	%rax, -472(%rbp)
+    27a0: 48 8d 85 f0 fd ff ff         	leaq	-528(%rbp), %rax
+    27a7: 48 89 85 20 fe ff ff         	movq	%rax, -480(%rbp)
+    27ae: c6 85 1f fe ff ff 00         	movb	$0, -481(%rbp)
+    27b5: 48 8b 8d 30 fe ff ff         	movq	-464(%rbp), %rcx
+    27bc: 8a 85 1f fe ff ff            	movb	-481(%rbp), %al
+    27c2: 48 89 8d 48 fe ff ff         	movq	%rcx, -440(%rbp)
+    27c9: 48 8d 8d 10 fe ff ff         	leaq	-496(%rbp), %rcx
+    27d0: 48 89 8d 40 fe ff ff         	movq	%rcx, -448(%rbp)
+    27d7: 24 01                        	andb	$1, %al
+    27d9: 88 85 3f fe ff ff            	movb	%al, -449(%rbp)
+    27df: 48 8b 85 48 fe ff ff         	movq	-440(%rbp), %rax
+    27e6: 48 89 85 58 fe ff ff         	movq	%rax, -424(%rbp)
+    27ed: 48 8b 85 58 fe ff ff         	movq	-424(%rbp), %rax
+    27f4: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    27f8: 83 f8 06                     	cmpl	$6, %eax
+    27fb: 0f 94 c0                     	sete	%al
+    27fe: a8 01                        	testb	$1, %al
+    2800: 0f 85 05 00 00 00            	jne	0x280b <_zif_bolt_decrypt+0x29b>
+    2806: e9 19 00 00 00               	jmp	0x2824 <_zif_bolt_decrypt+0x2b4>
+    280b: 48 8b 85 48 fe ff ff         	movq	-440(%rbp), %rax
+    2812: 48 8b 08                     	movq	(%rax), %rcx
+    2815: 48 8b 85 40 fe ff ff         	movq	-448(%rbp), %rax
+    281c: 48 89 08                     	movq	%rcx, (%rax)
+    281f: e9 62 00 00 00               	jmp	0x2886 <_zif_bolt_decrypt+0x316>
+    2824: f6 85 3f fe ff ff 01         	testb	$1, -449(%rbp)
+    282b: 0f 84 35 00 00 00            	je	0x2866 <_zif_bolt_decrypt+0x2f6>
+    2831: 48 8b 85 48 fe ff ff         	movq	-440(%rbp), %rax
+    2838: 48 89 85 60 fe ff ff         	movq	%rax, -416(%rbp)
+    283f: 48 8b 85 60 fe ff ff         	movq	-416(%rbp), %rax
+    2846: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    284a: 83 f8 01                     	cmpl	$1, %eax
+    284d: 0f 85 13 00 00 00            	jne	0x2866 <_zif_bolt_decrypt+0x2f6>
+    2853: 48 8b 85 40 fe ff ff         	movq	-448(%rbp), %rax
+    285a: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    2861: e9 20 00 00 00               	jmp	0x2886 <_zif_bolt_decrypt+0x316>
+    2866: 48 8b bd 48 fe ff ff         	movq	-440(%rbp), %rdi
+    286d: 48 8b b5 40 fe ff ff         	movq	-448(%rbp), %rsi
+    2874: e8 1b 15 00 00               	callq	0x3d94 <dyld_stub_binder+0x3d94>
+    2879: 24 01                        	andb	$1, %al
+    287b: 88 85 57 fe ff ff            	movb	%al, -425(%rbp)
+    2881: e9 07 00 00 00               	jmp	0x288d <_zif_bolt_decrypt+0x31d>
+    2886: c6 85 57 fe ff ff 01         	movb	$1, -425(%rbp)
+    288d: f6 85 57 fe ff ff 01         	testb	$1, -425(%rbp)
+    2894: 0f 85 0c 00 00 00            	jne	0x28a6 <_zif_bolt_decrypt+0x336>
+    289a: c6 85 3e fe ff ff 00         	movb	$0, -450(%rbp)
+    28a1: e9 79 00 00 00               	jmp	0x291f <_zif_bolt_decrypt+0x3af>
+    28a6: f6 85 1f fe ff ff 01         	testb	$1, -481(%rbp)
+    28ad: 0f 84 3b 00 00 00            	je	0x28ee <_zif_bolt_decrypt+0x37e>
+    28b3: 48 83 bd 10 fe ff ff 00      	cmpq	$0, -496(%rbp)
+    28bb: 0f 95 c0                     	setne	%al
+    28be: 34 ff                        	xorb	$-1, %al
+    28c0: a8 01                        	testb	$1, %al
+    28c2: 0f 85 05 00 00 00            	jne	0x28cd <_zif_bolt_decrypt+0x35d>
+    28c8: e9 21 00 00 00               	jmp	0x28ee <_zif_bolt_decrypt+0x37e>
+    28cd: 48 8b 85 28 fe ff ff         	movq	-472(%rbp), %rax
+    28d4: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    28db: 48 8b 85 20 fe ff ff         	movq	-480(%rbp), %rax
+    28e2: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    28e9: e9 2a 00 00 00               	jmp	0x2918 <_zif_bolt_decrypt+0x3a8>
+    28ee: 48 8b 8d 10 fe ff ff         	movq	-496(%rbp), %rcx
+    28f5: 48 83 c1 18                  	addq	$24, %rcx
+    28f9: 48 8b 85 28 fe ff ff         	movq	-472(%rbp), %rax
+    2900: 48 89 08                     	movq	%rcx, (%rax)
+    2903: 48 8b 85 10 fe ff ff         	movq	-496(%rbp), %rax
+    290a: 48 8b 48 10                  	movq	16(%rax), %rcx
+    290e: 48 8b 85 20 fe ff ff         	movq	-480(%rbp), %rax
+    2915: 48 89 08                     	movq	%rcx, (%rax)
+    2918: c6 85 3e fe ff ff 01         	movb	$1, -450(%rbp)
+    291f: 8a 85 3e fe ff ff            	movb	-450(%rbp), %al
+    2925: 34 ff                        	xorb	$-1, %al
+    2927: 34 ff                        	xorb	$-1, %al
+    2929: 34 ff                        	xorb	$-1, %al
+    292b: 24 01                        	andb	$1, %al
+    292d: 0f b6 c0                     	movzbl	%al, %eax
+    2930: 48 98                        	cltq
+    2932: 48 83 f8 00                  	cmpq	$0, %rax
+    2936: 0f 84 19 00 00 00            	je	0x2955 <_zif_bolt_decrypt+0x3e5>
+    293c: c7 85 b4 fd ff ff 04 00 00 00	movl	$4, -588(%rbp)
+    2946: c7 85 a0 fd ff ff 09 00 00 00	movl	$9, -608(%rbp)
+    2950: e9 e7 02 00 00               	jmp	0x2c3c <_zif_bolt_decrypt+0x6cc>
+    2955: 8b 85 cc fd ff ff            	movl	-564(%rbp), %eax
+    295b: 83 c0 01                     	addl	$1, %eax
+    295e: 89 85 cc fd ff ff            	movl	%eax, -564(%rbp)
+    2964: 8b 85 cc fd ff ff            	movl	-564(%rbp), %eax
+    296a: 3b 85 d8 fd ff ff            	cmpl	-552(%rbp), %eax
+    2970: b0 01                        	movb	$1, %al
+    2972: 88 85 35 fd ff ff            	movb	%al, -715(%rbp)
+    2978: 0f 86 17 00 00 00            	jbe	0x2995 <_zif_bolt_decrypt+0x425>
+    297e: 8a 85 a6 fd ff ff            	movb	-602(%rbp), %al
+    2984: 24 01                        	andb	$1, %al
+    2986: 0f b6 c0                     	movzbl	%al, %eax
+    2989: 83 f8 01                     	cmpl	$1, %eax
+    298c: 0f 94 c0                     	sete	%al
+    298f: 88 85 35 fd ff ff            	movb	%al, -715(%rbp)
+    2995: 8a 85 35 fd ff ff            	movb	-715(%rbp), %al
+    299b: 34 ff                        	xorb	$-1, %al
+    299d: 24 01                        	andb	$1, %al
+    299f: 0f b6 c0                     	movzbl	%al, %eax
+    29a2: 48 98                        	cltq
+    29a4: 48 83 f8 00                  	cmpq	$0, %rax
+    29a8: 0f 84 02 00 00 00            	je	0x29b0 <_zif_bolt_decrypt+0x440>
+    29ae: 0f 0b                        	ud2
+    29b0: e9 00 00 00 00               	jmp	0x29b5 <_zif_bolt_decrypt+0x445>
+    29b5: e9 00 00 00 00               	jmp	0x29ba <_zif_bolt_decrypt+0x44a>
+    29ba: 8b 85 cc fd ff ff            	movl	-564(%rbp), %eax
+    29c0: 3b 85 d8 fd ff ff            	cmpl	-552(%rbp), %eax
+    29c6: b0 01                        	movb	$1, %al
+    29c8: 88 85 34 fd ff ff            	movb	%al, -716(%rbp)
+    29ce: 0f 87 17 00 00 00            	ja	0x29eb <_zif_bolt_decrypt+0x47b>
+    29d4: 8a 85 a6 fd ff ff            	movb	-602(%rbp), %al
+    29da: 24 01                        	andb	$1, %al
+    29dc: 0f b6 c0                     	movzbl	%al, %eax
+    29df: 83 f8 00                     	cmpl	$0, %eax
+    29e2: 0f 94 c0                     	sete	%al
+    29e5: 88 85 34 fd ff ff            	movb	%al, -716(%rbp)
+    29eb: 8a 85 34 fd ff ff            	movb	-716(%rbp), %al
+    29f1: 34 ff                        	xorb	$-1, %al
+    29f3: 24 01                        	andb	$1, %al
+    29f5: 0f b6 c0                     	movzbl	%al, %eax
+    29f8: 48 98                        	cltq
+    29fa: 48 83 f8 00                  	cmpq	$0, %rax
+    29fe: 0f 84 02 00 00 00            	je	0x2a06 <_zif_bolt_decrypt+0x496>
+    2a04: 0f 0b                        	ud2
+    2a06: e9 00 00 00 00               	jmp	0x2a0b <_zif_bolt_decrypt+0x49b>
+    2a0b: f6 85 a6 fd ff ff 01         	testb	$1, -602(%rbp)
+    2a12: 0f 84 2e 00 00 00            	je	0x2a46 <_zif_bolt_decrypt+0x4d6>
+    2a18: 8b 85 cc fd ff ff            	movl	-564(%rbp), %eax
+    2a1e: 3b 85 d0 fd ff ff            	cmpl	-560(%rbp), %eax
+    2a24: 0f 97 c0                     	seta	%al
+    2a27: 34 ff                        	xorb	$-1, %al
+    2a29: 34 ff                        	xorb	$-1, %al
+    2a2b: 24 01                        	andb	$1, %al
+    2a2d: 0f b6 c0                     	movzbl	%al, %eax
+    2a30: 48 98                        	cltq
+    2a32: 48 83 f8 00                  	cmpq	$0, %rax
+    2a36: 0f 84 05 00 00 00            	je	0x2a41 <_zif_bolt_decrypt+0x4d1>
+    2a3c: e9 fb 01 00 00               	jmp	0x2c3c <_zif_bolt_decrypt+0x6cc>
+    2a41: e9 00 00 00 00               	jmp	0x2a46 <_zif_bolt_decrypt+0x4d6>
+    2a46: 48 8b 85 c0 fd ff ff         	movq	-576(%rbp), %rax
+    2a4d: 48 83 c0 10                  	addq	$16, %rax
+    2a51: 48 89 85 c0 fd ff ff         	movq	%rax, -576(%rbp)
+    2a58: 48 8b 85 c0 fd ff ff         	movq	-576(%rbp), %rax
+    2a5f: 48 89 85 b8 fd ff ff         	movq	%rax, -584(%rbp)
+    2a66: 48 8b 85 b8 fd ff ff         	movq	-584(%rbp), %rax
+    2a6d: 48 89 85 88 fe ff ff         	movq	%rax, -376(%rbp)
+    2a74: 48 8d 85 e8 fd ff ff         	leaq	-536(%rbp), %rax
+    2a7b: 48 89 85 80 fe ff ff         	movq	%rax, -384(%rbp)
+    2a82: 48 8d 85 e0 fd ff ff         	leaq	-544(%rbp), %rax
+    2a89: 48 89 85 78 fe ff ff         	movq	%rax, -392(%rbp)
+    2a90: c6 85 77 fe ff ff 00         	movb	$0, -393(%rbp)
+    2a97: 48 8b 8d 88 fe ff ff         	movq	-376(%rbp), %rcx
+    2a9e: 8a 85 77 fe ff ff            	movb	-393(%rbp), %al
+    2aa4: 48 89 8d a0 fe ff ff         	movq	%rcx, -352(%rbp)
+    2aab: 48 8d 8d 68 fe ff ff         	leaq	-408(%rbp), %rcx
+    2ab2: 48 89 8d 98 fe ff ff         	movq	%rcx, -360(%rbp)
+    2ab9: 24 01                        	andb	$1, %al
+    2abb: 88 85 97 fe ff ff            	movb	%al, -361(%rbp)
+    2ac1: 48 8b 85 a0 fe ff ff         	movq	-352(%rbp), %rax
+    2ac8: 48 89 85 b0 fe ff ff         	movq	%rax, -336(%rbp)
+    2acf: 48 8b 85 b0 fe ff ff         	movq	-336(%rbp), %rax
+    2ad6: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    2ada: 83 f8 06                     	cmpl	$6, %eax
+    2add: 0f 94 c0                     	sete	%al
+    2ae0: a8 01                        	testb	$1, %al
+    2ae2: 0f 85 05 00 00 00            	jne	0x2aed <_zif_bolt_decrypt+0x57d>
+    2ae8: e9 19 00 00 00               	jmp	0x2b06 <_zif_bolt_decrypt+0x596>
+    2aed: 48 8b 85 a0 fe ff ff         	movq	-352(%rbp), %rax
+    2af4: 48 8b 08                     	movq	(%rax), %rcx
+    2af7: 48 8b 85 98 fe ff ff         	movq	-360(%rbp), %rax
+    2afe: 48 89 08                     	movq	%rcx, (%rax)
+    2b01: e9 62 00 00 00               	jmp	0x2b68 <_zif_bolt_decrypt+0x5f8>
+    2b06: f6 85 97 fe ff ff 01         	testb	$1, -361(%rbp)
+    2b0d: 0f 84 35 00 00 00            	je	0x2b48 <_zif_bolt_decrypt+0x5d8>
+    2b13: 48 8b 85 a0 fe ff ff         	movq	-352(%rbp), %rax
+    2b1a: 48 89 85 b8 fe ff ff         	movq	%rax, -328(%rbp)
+    2b21: 48 8b 85 b8 fe ff ff         	movq	-328(%rbp), %rax
+    2b28: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    2b2c: 83 f8 01                     	cmpl	$1, %eax
+    2b2f: 0f 85 13 00 00 00            	jne	0x2b48 <_zif_bolt_decrypt+0x5d8>
+    2b35: 48 8b 85 98 fe ff ff         	movq	-360(%rbp), %rax
+    2b3c: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    2b43: e9 20 00 00 00               	jmp	0x2b68 <_zif_bolt_decrypt+0x5f8>
+    2b48: 48 8b bd a0 fe ff ff         	movq	-352(%rbp), %rdi
+    2b4f: 48 8b b5 98 fe ff ff         	movq	-360(%rbp), %rsi
+    2b56: e8 39 12 00 00               	callq	0x3d94 <dyld_stub_binder+0x3d94>
+    2b5b: 24 01                        	andb	$1, %al
+    2b5d: 88 85 af fe ff ff            	movb	%al, -337(%rbp)
+    2b63: e9 07 00 00 00               	jmp	0x2b6f <_zif_bolt_decrypt+0x5ff>
+    2b68: c6 85 af fe ff ff 01         	movb	$1, -337(%rbp)
+    2b6f: f6 85 af fe ff ff 01         	testb	$1, -337(%rbp)
+    2b76: 0f 85 0c 00 00 00            	jne	0x2b88 <_zif_bolt_decrypt+0x618>
+    2b7c: c6 85 96 fe ff ff 00         	movb	$0, -362(%rbp)
+    2b83: e9 79 00 00 00               	jmp	0x2c01 <_zif_bolt_decrypt+0x691>
+    2b88: f6 85 77 fe ff ff 01         	testb	$1, -393(%rbp)
+    2b8f: 0f 84 3b 00 00 00            	je	0x2bd0 <_zif_bolt_decrypt+0x660>
+    2b95: 48 83 bd 68 fe ff ff 00      	cmpq	$0, -408(%rbp)
+    2b9d: 0f 95 c0                     	setne	%al
+    2ba0: 34 ff                        	xorb	$-1, %al
+    2ba2: a8 01                        	testb	$1, %al
+    2ba4: 0f 85 05 00 00 00            	jne	0x2baf <_zif_bolt_decrypt+0x63f>
+    2baa: e9 21 00 00 00               	jmp	0x2bd0 <_zif_bolt_decrypt+0x660>
+    2baf: 48 8b 85 80 fe ff ff         	movq	-384(%rbp), %rax
+    2bb6: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    2bbd: 48 8b 85 78 fe ff ff         	movq	-392(%rbp), %rax
+    2bc4: 48 c7 00 00 00 00 00         	movq	$0, (%rax)
+    2bcb: e9 2a 00 00 00               	jmp	0x2bfa <_zif_bolt_decrypt+0x68a>
+    2bd0: 48 8b 8d 68 fe ff ff         	movq	-408(%rbp), %rcx
+    2bd7: 48 83 c1 18                  	addq	$24, %rcx
+    2bdb: 48 8b 85 80 fe ff ff         	movq	-384(%rbp), %rax
+    2be2: 48 89 08                     	movq	%rcx, (%rax)
+    2be5: 48 8b 85 68 fe ff ff         	movq	-408(%rbp), %rax
+    2bec: 48 8b 48 10                  	movq	16(%rax), %rcx
+    2bf0: 48 8b 85 78 fe ff ff         	movq	-392(%rbp), %rax
+    2bf7: 48 89 08                     	movq	%rcx, (%rax)
+    2bfa: c6 85 96 fe ff ff 01         	movb	$1, -362(%rbp)
+    2c01: 8a 85 96 fe ff ff            	movb	-362(%rbp), %al
+    2c07: 34 ff                        	xorb	$-1, %al
+    2c09: 34 ff                        	xorb	$-1, %al
+    2c0b: 34 ff                        	xorb	$-1, %al
+    2c0d: 24 01                        	andb	$1, %al
+    2c0f: 0f b6 c0                     	movzbl	%al, %eax
+    2c12: 48 98                        	cltq
+    2c14: 48 83 f8 00                  	cmpq	$0, %rax
+    2c18: 0f 84 19 00 00 00            	je	0x2c37 <_zif_bolt_decrypt+0x6c7>
+    2c1e: c7 85 b4 fd ff ff 04 00 00 00	movl	$4, -588(%rbp)
+    2c28: c7 85 a0 fd ff ff 09 00 00 00	movl	$9, -608(%rbp)
+    2c32: e9 05 00 00 00               	jmp	0x2c3c <_zif_bolt_decrypt+0x6cc>
+    2c37: e9 00 00 00 00               	jmp	0x2c3c <_zif_bolt_decrypt+0x6cc>
+    2c3c: 83 bd a0 fd ff ff 00         	cmpl	$0, -608(%rbp)
+    2c43: 0f 95 c0                     	setne	%al
+    2c46: 34 ff                        	xorb	$-1, %al
+    2c48: 34 ff                        	xorb	$-1, %al
+    2c4a: 24 01                        	andb	$1, %al
+    2c4c: 0f b6 c0                     	movzbl	%al, %eax
+    2c4f: 48 98                        	cltq
+    2c51: 48 83 f8 00                  	cmpq	$0, %rax
+    2c55: 0f 84 2a 00 00 00            	je	0x2c85 <_zif_bolt_decrypt+0x715>
+    2c5b: 8b bd a0 fd ff ff            	movl	-608(%rbp), %edi
+    2c61: 8b b5 cc fd ff ff            	movl	-564(%rbp), %esi
+    2c67: 48 8b 95 a8 fd ff ff         	movq	-600(%rbp), %rdx
+    2c6e: 8b 8d b4 fd ff ff            	movl	-588(%rbp), %ecx
+    2c74: 4c 8b 85 b8 fd ff ff         	movq	-584(%rbp), %r8
+    2c7b: e8 20 11 00 00               	callq	0x3da0 <dyld_stub_binder+0x3da0>
+    2c80: e9 7e 0a 00 00               	jmp	0x3703 <_zif_bolt_decrypt+0x1193>
+    2c85: e9 00 00 00 00               	jmp	0x2c8a <_zif_bolt_decrypt+0x71a>
+    2c8a: 31 c0                        	xorl	%eax, %eax
+    2c8c: 41 89 c0                     	movl	%eax, %r8d
+    2c8f: 48 8b bd f8 fd ff ff         	movq	-520(%rbp), %rdi
+    2c96: 48 8d 35 53 12 00 00         	leaq	4691(%rip), %rsi        ## 0x3ef0 <dyld_stub_binder+0x3ef0>
+    2c9d: ba 12 00 00 00               	movl	$18, %edx
+    2ca2: 4c 89 c1                     	movq	%r8, %rcx
+    2ca5: e8 84 10 00 00               	callq	0x3d2e <dyld_stub_binder+0x3d2e>
+    2caa: 31 c9                        	xorl	%ecx, %ecx
+    2cac: 89 ce                        	movl	%ecx, %esi
+    2cae: 48 89 85 98 fd ff ff         	movq	%rax, -616(%rbp)
+    2cb5: 48 8b bd 98 fd ff ff         	movq	-616(%rbp), %rdi
+    2cbc: ba 02 00 00 00               	movl	$2, %edx
+    2cc1: e8 6e 10 00 00               	callq	0x3d34 <dyld_stub_binder+0x3d34>
+    2cc6: 48 8b bd 98 fd ff ff         	movq	-616(%rbp), %rdi
+    2ccd: e8 68 10 00 00               	callq	0x3d3a <dyld_stub_binder+0x3d3a>
+    2cd2: 31 c9                        	xorl	%ecx, %ecx
+    2cd4: 89 ce                        	movl	%ecx, %esi
+    2cd6: 31 d2                        	xorl	%edx, %edx
+    2cd8: 48 89 85 90 fd ff ff         	movq	%rax, -624(%rbp)
+    2cdf: 48 8b bd 98 fd ff ff         	movq	-616(%rbp), %rdi
+    2ce6: e8 49 10 00 00               	callq	0x3d34 <dyld_stub_binder+0x3d34>
+    2ceb: 48 8b 85 90 fd ff ff         	movq	-624(%rbp), %rax
+    2cf2: 48 89 85 d0 fe ff ff         	movq	%rax, -304(%rbp)
+    2cf9: c6 85 cf fe ff ff 00         	movb	$0, -305(%rbp)
+    2d00: f6 85 cf fe ff ff 01         	testb	$1, -305(%rbp)
+    2d07: 0f 84 2c 00 00 00            	je	0x2d39 <_zif_bolt_decrypt+0x7c9>
+    2d0d: 48 8b bd d0 fe ff ff         	movq	-304(%rbp), %rdi
+    2d14: 48 83 c7 18                  	addq	$24, %rdi
+    2d18: 48 83 c7 01                  	addq	$1, %rdi
+    2d1c: 48 83 c7 08                  	addq	$8, %rdi
+    2d20: 48 83 ef 01                  	subq	$1, %rdi
+    2d24: 48 83 e7 f8                  	andq	$-8, %rdi
+    2d28: e8 e3 0f 00 00               	callq	0x3d10 <dyld_stub_binder+0x3d10>
+    2d2d: 48 89 85 28 fd ff ff         	movq	%rax, -728(%rbp)
+    2d34: e9 3a 00 00 00               	jmp	0x2d73 <_zif_bolt_decrypt+0x803>
+    2d39: 48 8b bd d0 fe ff ff         	movq	-304(%rbp), %rdi
+    2d40: 48 83 c7 18                  	addq	$24, %rdi
+    2d44: 48 83 c7 01                  	addq	$1, %rdi
+    2d48: 48 83 c7 08                  	addq	$8, %rdi
+    2d4c: 48 83 ef 01                  	subq	$1, %rdi
+    2d50: 48 83 e7 f8                  	andq	$-8, %rdi
+    2d54: e8 c9 0f 00 00               	callq	0x3d22 <dyld_stub_binder+0x3d22>
+    2d59: 48 89 85 20 fd ff ff         	movq	%rax, -736(%rbp)
+    2d60: 48 8b 85 20 fd ff ff         	movq	-736(%rbp), %rax
+    2d67: 48 89 85 28 fd ff ff         	movq	%rax, -728(%rbp)
+    2d6e: e9 00 00 00 00               	jmp	0x2d73 <_zif_bolt_decrypt+0x803>
+    2d73: 48 8b 85 28 fd ff ff         	movq	-728(%rbp), %rax
+    2d7a: 31 d2                        	xorl	%edx, %edx
+    2d7c: 48 89 85 c0 fe ff ff         	movq	%rax, -320(%rbp)
+    2d83: 48 8b 85 c0 fe ff ff         	movq	-320(%rbp), %rax
+    2d8a: 48 89 85 e0 fe ff ff         	movq	%rax, -288(%rbp)
+    2d91: c7 85 dc fe ff ff 01 00 00 00	movl	$1, -292(%rbp)
+    2d9b: 8b 8d dc fe ff ff            	movl	-292(%rbp), %ecx
+    2da1: 48 8b 85 e0 fe ff ff         	movq	-288(%rbp), %rax
+    2da8: 89 08                        	movl	%ecx, (%rax)
+    2daa: 8a 85 cf fe ff ff            	movb	-305(%rbp), %al
+    2db0: a8 01                        	testb	$1, %al
+    2db2: b8 80 00 00 00               	movl	$128, %eax
+    2db7: 89 d1                        	movl	%edx, %ecx
+    2db9: 0f 45 c8                     	cmovnel	%eax, %ecx
+    2dbc: 83 c9 16                     	orl	$22, %ecx
+    2dbf: 48 8b 85 c0 fe ff ff         	movq	-320(%rbp), %rax
+    2dc6: 89 48 04                     	movl	%ecx, 4(%rax)
+    2dc9: 48 8b 85 c0 fe ff ff         	movq	-320(%rbp), %rax
+    2dd0: 48 c7 40 08 00 00 00 00      	movq	$0, 8(%rax)
+    2dd8: 48 8b 8d d0 fe ff ff         	movq	-304(%rbp), %rcx
+    2ddf: 48 8b 85 c0 fe ff ff         	movq	-320(%rbp), %rax
+    2de6: 48 89 48 10                  	movq	%rcx, 16(%rax)
+    2dea: 48 8b 85 c0 fe ff ff         	movq	-320(%rbp), %rax
+    2df1: 48 89 85 88 fd ff ff         	movq	%rax, -632(%rbp)
+    2df8: 48 8b bd 98 fd ff ff         	movq	-616(%rbp), %rdi
+    2dff: 48 8b b5 90 fd ff ff         	movq	-624(%rbp), %rsi
+    2e06: e8 1d 0f 00 00               	callq	0x3d28 <dyld_stub_binder+0x3d28>
+    2e0b: 48 89 85 88 fd ff ff         	movq	%rax, -632(%rbp)
+    2e12: 48 8b bd 88 fd ff ff         	movq	-632(%rbp), %rdi
+    2e19: 48 83 c7 18                  	addq	$24, %rdi
+    2e1d: 48 8d 35 cf 10 00 00         	leaq	4303(%rip), %rsi        ## 0x3ef3 <dyld_stub_binder+0x3ef3>
+    2e24: e8 53 0f 00 00               	callq	0x3d7c <dyld_stub_binder+0x3d7c>
+    2e29: 89 85 84 fd ff ff            	movl	%eax, -636(%rbp)
+    2e2f: 8b 85 84 fd ff ff            	movl	-636(%rbp), %eax
+    2e35: 83 c0 07                     	addl	$7, %eax
+    2e38: 89 85 84 fd ff ff            	movl	%eax, -636(%rbp)
+    2e3e: 48 8b bd 88 fd ff ff         	movq	-632(%rbp), %rdi
+    2e45: 48 83 c7 18                  	addq	$24, %rdi
+    2e49: 48 63 95 84 fd ff ff         	movslq	-636(%rbp), %rdx
+    2e50: be 20 00 00 00               	movl	$32, %esi
+    2e55: 48 c7 c1 ff ff ff ff         	movq	$-1, %rcx
+    2e5c: e8 a3 0e 00 00               	callq	0x3d04 <dyld_stub_binder+0x3d04>
+    2e61: 48 8b 85 e0 fd ff ff         	movq	-544(%rbp), %rax
+    2e68: 48 89 85 78 fd ff ff         	movq	%rax, -648(%rbp)
+    2e6f: 48 8b 8d e8 fd ff ff         	movq	-536(%rbp), %rcx
+    2e76: 48 8b 85 78 fd ff ff         	movq	-648(%rbp), %rax
+    2e7d: 48 89 8d 00 ff ff ff         	movq	%rcx, -256(%rbp)
+    2e84: 48 89 85 f8 fe ff ff         	movq	%rax, -264(%rbp)
+    2e8b: c6 85 f7 fe ff ff 00         	movb	$0, -265(%rbp)
+    2e92: 48 8b 8d f8 fe ff ff         	movq	-264(%rbp), %rcx
+    2e99: 8a 85 f7 fe ff ff            	movb	-265(%rbp), %al
+    2e9f: 48 89 8d 18 ff ff ff         	movq	%rcx, -232(%rbp)
+    2ea6: 24 01                        	andb	$1, %al
+    2ea8: 88 85 17 ff ff ff            	movb	%al, -233(%rbp)
+    2eae: f6 85 17 ff ff ff 01         	testb	$1, -233(%rbp)
+    2eb5: 0f 84 2c 00 00 00            	je	0x2ee7 <_zif_bolt_decrypt+0x977>
+    2ebb: 48 8b bd 18 ff ff ff         	movq	-232(%rbp), %rdi
+    2ec2: 48 83 c7 18                  	addq	$24, %rdi
+    2ec6: 48 83 c7 01                  	addq	$1, %rdi
+    2eca: 48 83 c7 08                  	addq	$8, %rdi
+    2ece: 48 83 ef 01                  	subq	$1, %rdi
+    2ed2: 48 83 e7 f8                  	andq	$-8, %rdi
+    2ed6: e8 35 0e 00 00               	callq	0x3d10 <dyld_stub_binder+0x3d10>
+    2edb: 48 89 85 18 fd ff ff         	movq	%rax, -744(%rbp)
+    2ee2: e9 3a 00 00 00               	jmp	0x2f21 <_zif_bolt_decrypt+0x9b1>
+    2ee7: 48 8b bd 18 ff ff ff         	movq	-232(%rbp), %rdi
+    2eee: 48 83 c7 18                  	addq	$24, %rdi
+    2ef2: 48 83 c7 01                  	addq	$1, %rdi
+    2ef6: 48 83 c7 08                  	addq	$8, %rdi
+    2efa: 48 83 ef 01                  	subq	$1, %rdi
+    2efe: 48 83 e7 f8                  	andq	$-8, %rdi
+    2f02: e8 1b 0e 00 00               	callq	0x3d22 <dyld_stub_binder+0x3d22>
+    2f07: 48 89 85 10 fd ff ff         	movq	%rax, -752(%rbp)
+    2f0e: 48 8b 85 10 fd ff ff         	movq	-752(%rbp), %rax
+    2f15: 48 89 85 18 fd ff ff         	movq	%rax, -744(%rbp)
+    2f1c: e9 00 00 00 00               	jmp	0x2f21 <_zif_bolt_decrypt+0x9b1>
+    2f21: 48 8b 85 18 fd ff ff         	movq	-744(%rbp), %rax
+    2f28: 31 c9                        	xorl	%ecx, %ecx
+    2f2a: 48 89 85 08 ff ff ff         	movq	%rax, -248(%rbp)
+    2f31: 48 8b 85 08 ff ff ff         	movq	-248(%rbp), %rax
+    2f38: 48 89 85 28 ff ff ff         	movq	%rax, -216(%rbp)
+    2f3f: c7 85 24 ff ff ff 01 00 00 00	movl	$1, -220(%rbp)
+    2f49: 8b 95 24 ff ff ff            	movl	-220(%rbp), %edx
+    2f4f: 48 8b 85 28 ff ff ff         	movq	-216(%rbp), %rax
+    2f56: 89 10                        	movl	%edx, (%rax)
+    2f58: 8a 85 17 ff ff ff            	movb	-233(%rbp), %al
+    2f5e: a8 01                        	testb	$1, %al
+    2f60: b8 80 00 00 00               	movl	$128, %eax
+    2f65: 0f 45 c8                     	cmovnel	%eax, %ecx
+    2f68: 83 c9 16                     	orl	$22, %ecx
+    2f6b: 48 8b 85 08 ff ff ff         	movq	-248(%rbp), %rax
+    2f72: 89 48 04                     	movl	%ecx, 4(%rax)
+    2f75: 48 8b 85 08 ff ff ff         	movq	-248(%rbp), %rax
+    2f7c: 48 c7 40 08 00 00 00 00      	movq	$0, 8(%rax)
+    2f84: 48 8b 8d 18 ff ff ff         	movq	-232(%rbp), %rcx
+    2f8b: 48 8b 85 08 ff ff ff         	movq	-248(%rbp), %rax
+    2f92: 48 89 48 10                  	movq	%rcx, 16(%rax)
+    2f96: 48 8b 85 08 ff ff ff         	movq	-248(%rbp), %rax
+    2f9d: 48 89 85 e8 fe ff ff         	movq	%rax, -280(%rbp)
+    2fa4: 48 8b bd e8 fe ff ff         	movq	-280(%rbp), %rdi
+    2fab: 48 83 c7 18                  	addq	$24, %rdi
+    2faf: 48 8b b5 00 ff ff ff         	movq	-256(%rbp), %rsi
+    2fb6: 48 8b 95 f8 fe ff ff         	movq	-264(%rbp), %rdx
+    2fbd: 48 c7 c1 ff ff ff ff         	movq	$-1, %rcx
+    2fc4: e8 35 0d 00 00               	callq	0x3cfe <dyld_stub_binder+0x3cfe>
+    2fc9: 48 8b 85 e8 fe ff ff         	movq	-280(%rbp), %rax
+    2fd0: 48 8b 8d f8 fe ff ff         	movq	-264(%rbp), %rcx
+    2fd7: c6 44 08 18 00               	movb	$0, 24(%rax,%rcx)
+    2fdc: 48 8b 85 e8 fe ff ff         	movq	-280(%rbp), %rax
+    2fe3: 48 89 85 70 fd ff ff         	movq	%rax, -656(%rbp)
+    2fea: 48 83 bd 78 fd ff ff 02      	cmpq	$2, -648(%rbp)
+    2ff2: 0f 83 e7 01 00 00            	jae	0x31df <_zif_bolt_decrypt+0xc6f>
+    2ff8: e9 00 00 00 00               	jmp	0x2ffd <_zif_bolt_decrypt+0xa8d>
+    2ffd: e9 00 00 00 00               	jmp	0x3002 <_zif_bolt_decrypt+0xa92>
+    3002: 48 8d 05 f2 0e 00 00         	leaq	3826(%rip), %rax        ## 0x3efb <dyld_stub_binder+0x3efb>
+    3009: 48 89 85 68 fd ff ff         	movq	%rax, -664(%rbp)
+    3010: e9 00 00 00 00               	jmp	0x3015 <_zif_bolt_decrypt+0xaa5>
+    3015: 48 8b 85 00 fe ff ff         	movq	-512(%rbp), %rax
+    301c: 48 89 85 60 fd ff ff         	movq	%rax, -672(%rbp)
+    3023: 48 8b 85 68 fd ff ff         	movq	-664(%rbp), %rax
+    302a: 48 89 85 08 fd ff ff         	movq	%rax, -760(%rbp)
+    3031: 48 8b bd 68 fd ff ff         	movq	-664(%rbp), %rdi
+    3038: e8 39 0d 00 00               	callq	0x3d76 <dyld_stub_binder+0x3d76>
+    303d: 48 8b 8d 08 fd ff ff         	movq	-760(%rbp), %rcx
+    3044: 48 89 8d 48 ff ff ff         	movq	%rcx, -184(%rbp)
+    304b: 48 89 85 40 ff ff ff         	movq	%rax, -192(%rbp)
+    3052: c6 85 3f ff ff ff 00         	movb	$0, -193(%rbp)
+    3059: 48 8b 8d 40 ff ff ff         	movq	-192(%rbp), %rcx
+    3060: 8a 85 3f ff ff ff            	movb	-193(%rbp), %al
+    3066: 48 89 8d 60 ff ff ff         	movq	%rcx, -160(%rbp)
+    306d: 24 01                        	andb	$1, %al
+    306f: 88 85 5f ff ff ff            	movb	%al, -161(%rbp)
+    3075: f6 85 5f ff ff ff 01         	testb	$1, -161(%rbp)
+    307c: 0f 84 2c 00 00 00            	je	0x30ae <_zif_bolt_decrypt+0xb3e>
+    3082: 48 8b bd 60 ff ff ff         	movq	-160(%rbp), %rdi
+    3089: 48 83 c7 18                  	addq	$24, %rdi
+    308d: 48 83 c7 01                  	addq	$1, %rdi
+    3091: 48 83 c7 08                  	addq	$8, %rdi
+    3095: 48 83 ef 01                  	subq	$1, %rdi
+    3099: 48 83 e7 f8                  	andq	$-8, %rdi
+    309d: e8 6e 0c 00 00               	callq	0x3d10 <dyld_stub_binder+0x3d10>
+    30a2: 48 89 85 00 fd ff ff         	movq	%rax, -768(%rbp)
+    30a9: e9 3a 00 00 00               	jmp	0x30e8 <_zif_bolt_decrypt+0xb78>
+    30ae: 48 8b bd 60 ff ff ff         	movq	-160(%rbp), %rdi
+    30b5: 48 83 c7 18                  	addq	$24, %rdi
+    30b9: 48 83 c7 01                  	addq	$1, %rdi
+    30bd: 48 83 c7 08                  	addq	$8, %rdi
+    30c1: 48 83 ef 01                  	subq	$1, %rdi
+    30c5: 48 83 e7 f8                  	andq	$-8, %rdi
+    30c9: e8 54 0c 00 00               	callq	0x3d22 <dyld_stub_binder+0x3d22>
+    30ce: 48 89 85 f8 fc ff ff         	movq	%rax, -776(%rbp)
+    30d5: 48 8b 85 f8 fc ff ff         	movq	-776(%rbp), %rax
+    30dc: 48 89 85 00 fd ff ff         	movq	%rax, -768(%rbp)
+    30e3: e9 00 00 00 00               	jmp	0x30e8 <_zif_bolt_decrypt+0xb78>
+    30e8: 48 8b 85 00 fd ff ff         	movq	-768(%rbp), %rax
+    30ef: 31 c9                        	xorl	%ecx, %ecx
+    30f1: 48 89 85 50 ff ff ff         	movq	%rax, -176(%rbp)
+    30f8: 48 8b 85 50 ff ff ff         	movq	-176(%rbp), %rax
+    30ff: 48 89 85 70 ff ff ff         	movq	%rax, -144(%rbp)
+    3106: c7 85 6c ff ff ff 01 00 00 00	movl	$1, -148(%rbp)
+    3110: 8b 95 6c ff ff ff            	movl	-148(%rbp), %edx
+    3116: 48 8b 85 70 ff ff ff         	movq	-144(%rbp), %rax
+    311d: 89 10                        	movl	%edx, (%rax)
+    311f: 8a 85 5f ff ff ff            	movb	-161(%rbp), %al
+    3125: a8 01                        	testb	$1, %al
+    3127: b8 80 00 00 00               	movl	$128, %eax
+    312c: 0f 45 c8                     	cmovnel	%eax, %ecx
+    312f: 83 c9 16                     	orl	$22, %ecx
+    3132: 48 8b 85 50 ff ff ff         	movq	-176(%rbp), %rax
+    3139: 89 48 04                     	movl	%ecx, 4(%rax)
+    313c: 48 8b 85 50 ff ff ff         	movq	-176(%rbp), %rax
+    3143: 48 c7 40 08 00 00 00 00      	movq	$0, 8(%rax)
+    314b: 48 8b 8d 60 ff ff ff         	movq	-160(%rbp), %rcx
+    3152: 48 8b 85 50 ff ff ff         	movq	-176(%rbp), %rax
+    3159: 48 89 48 10                  	movq	%rcx, 16(%rax)
+    315d: 48 8b 85 50 ff ff ff         	movq	-176(%rbp), %rax
+    3164: 48 89 85 30 ff ff ff         	movq	%rax, -208(%rbp)
+    316b: 48 8b bd 30 ff ff ff         	movq	-208(%rbp), %rdi
+    3172: 48 83 c7 18                  	addq	$24, %rdi
+    3176: 48 8b b5 48 ff ff ff         	movq	-184(%rbp), %rsi
+    317d: 48 8b 95 40 ff ff ff         	movq	-192(%rbp), %rdx
+    3184: 48 c7 c1 ff ff ff ff         	movq	$-1, %rcx
+    318b: e8 6e 0b 00 00               	callq	0x3cfe <dyld_stub_binder+0x3cfe>
+    3190: 48 8b 85 30 ff ff ff         	movq	-208(%rbp), %rax
+    3197: 48 8b 8d 40 ff ff ff         	movq	-192(%rbp), %rcx
+    319e: c6 44 08 18 00               	movb	$0, 24(%rax,%rcx)
+    31a3: 48 8b 85 30 ff ff ff         	movq	-208(%rbp), %rax
+    31aa: 48 89 85 58 fd ff ff         	movq	%rax, -680(%rbp)
+    31b1: 48 8b 8d 58 fd ff ff         	movq	-680(%rbp), %rcx
+    31b8: 48 8b 85 60 fd ff ff         	movq	-672(%rbp), %rax
+    31bf: 48 89 08                     	movq	%rcx, (%rax)
+    31c2: 48 8b 85 60 fd ff ff         	movq	-672(%rbp), %rax
+    31c9: c7 40 08 06 01 00 00         	movl	$262, 8(%rax)           ## imm = 0x106
+    31d0: e9 00 00 00 00               	jmp	0x31d5 <_zif_bolt_decrypt+0xc65>
+    31d5: e9 00 00 00 00               	jmp	0x31da <_zif_bolt_decrypt+0xc6a>
+    31da: e9 24 05 00 00               	jmp	0x3703 <_zif_bolt_decrypt+0x1193>
+    31df: 48 8b 85 70 fd ff ff         	movq	-656(%rbp), %rax
+    31e6: 8a 40 19                     	movb	25(%rax), %al
+    31e9: 88 85 83 fd ff ff            	movb	%al, -637(%rbp)
+    31ef: 48 8b 85 70 fd ff ff         	movq	-656(%rbp), %rax
+    31f6: 48 8b 8d 78 fd ff ff         	movq	-648(%rbp), %rcx
+    31fd: 48 83 e9 01                  	subq	$1, %rcx
+    3201: 8a 4c 08 18                  	movb	24(%rax,%rcx), %cl
+    3205: 48 8b 85 70 fd ff ff         	movq	-656(%rbp), %rax
+    320c: 88 48 19                     	movb	%cl, 25(%rax)
+    320f: 8a 95 83 fd ff ff            	movb	-637(%rbp), %dl
+    3215: 48 8b 85 70 fd ff ff         	movq	-656(%rbp), %rax
+    321c: 48 8b 8d 78 fd ff ff         	movq	-648(%rbp), %rcx
+    3223: 48 83 e9 01                  	subq	$1, %rcx
+    3227: 88 54 08 18                  	movb	%dl, 24(%rax,%rcx)
+    322b: c6 85 57 fd ff ff 00         	movb	$0, -681(%rbp)
+    3232: 48 8b bd 88 fd ff ff         	movq	-632(%rbp), %rdi
+    3239: 48 83 c7 18                  	addq	$24, %rdi
+    323d: 48 8b 85 88 fd ff ff         	movq	-632(%rbp), %rax
+    3244: 48 8b 70 10                  	movq	16(%rax), %rsi
+    3248: 8a 85 57 fd ff ff            	movb	-681(%rbp), %al
+    324e: 24 01                        	andb	$1, %al
+    3250: 0f b6 d0                     	movzbl	%al, %edx
+    3253: e8 fa 0a 00 00               	callq	0x3d52 <dyld_stub_binder+0x3d52>
+    3258: 48 89 85 48 fd ff ff         	movq	%rax, -696(%rbp)
+    325f: 48 8b 85 88 fd ff ff         	movq	-632(%rbp), %rax
+    3266: 48 89 85 78 ff ff ff         	movq	%rax, -136(%rbp)
+    326d: 48 8b 85 78 ff ff ff         	movq	-136(%rbp), %rax
+    3274: 8b 40 04                     	movl	4(%rax), %eax
+    3277: 89 45 80                     	movl	%eax, -128(%rbp)
+    327a: 8b 45 80                     	movl	-128(%rbp), %eax
+    327d: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    3282: 83 e0 40                     	andl	$64, %eax
+    3285: 83 f8 00                     	cmpl	$0, %eax
+    3288: 0f 85 84 00 00 00            	jne	0x3312 <_zif_bolt_decrypt+0xda2>
+    328e: 48 8b 85 78 ff ff ff         	movq	-136(%rbp), %rax
+    3295: 48 89 45 88                  	movq	%rax, -120(%rbp)
+    3299: 48 8b 45 88                  	movq	-120(%rbp), %rax
+    329d: 83 38 00                     	cmpl	$0, (%rax)
+    32a0: 0f 97 c0                     	seta	%al
+    32a3: 34 ff                        	xorb	$-1, %al
+    32a5: a8 01                        	testb	$1, %al
+    32a7: 0f 85 05 00 00 00            	jne	0x32b2 <_zif_bolt_decrypt+0xd42>
+    32ad: e9 02 00 00 00               	jmp	0x32b4 <_zif_bolt_decrypt+0xd44>
+    32b2: 0f 0b                        	ud2
+    32b4: 48 8b 4d 88                  	movq	-120(%rbp), %rcx
+    32b8: 8b 01                        	movl	(%rcx), %eax
+    32ba: 83 c0 ff                     	addl	$-1, %eax
+    32bd: 89 01                        	movl	%eax, (%rcx)
+    32bf: 83 f8 00                     	cmpl	$0, %eax
+    32c2: 0f 85 45 00 00 00            	jne	0x330d <_zif_bolt_decrypt+0xd9d>
+    32c8: 48 8b 85 78 ff ff ff         	movq	-136(%rbp), %rax
+    32cf: 8b 40 04                     	movl	4(%rax), %eax
+    32d2: 89 45 84                     	movl	%eax, -124(%rbp)
+    32d5: 8b 45 84                     	movl	-124(%rbp), %eax
+    32d8: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    32dd: 25 80 00 00 00               	andl	$128, %eax
+    32e2: 83 f8 00                     	cmpl	$0, %eax
+    32e5: 0f 84 11 00 00 00            	je	0x32fc <_zif_bolt_decrypt+0xd8c>
+    32eb: 48 8b bd 78 ff ff ff         	movq	-136(%rbp), %rdi
+    32f2: e8 55 0a 00 00               	callq	0x3d4c <dyld_stub_binder+0x3d4c>
+    32f7: e9 0c 00 00 00               	jmp	0x3308 <_zif_bolt_decrypt+0xd98>
+    32fc: 48 8b bd 78 ff ff ff         	movq	-136(%rbp), %rdi
+    3303: e8 0e 0a 00 00               	callq	0x3d16 <dyld_stub_binder+0x3d16>
+    3308: e9 00 00 00 00               	jmp	0x330d <_zif_bolt_decrypt+0xd9d>
+    330d: e9 00 00 00 00               	jmp	0x3312 <_zif_bolt_decrypt+0xda2>
+    3312: c7 85 44 fd ff ff 00 00 00 00	movl	$0, -700(%rbp)
+    331c: c7 85 40 fd ff ff 00 00 00 00	movl	$0, -704(%rbp)
+    3326: 48 8b 85 48 fd ff ff         	movq	-696(%rbp), %rax
+    332d: 48 8b 40 10                  	movq	16(%rax), %rax
+    3331: 48 89 45 a0                  	movq	%rax, -96(%rbp)
+    3335: c6 45 9f 00                  	movb	$0, -97(%rbp)
+    3339: f6 45 9f 01                  	testb	$1, -97(%rbp)
+    333d: 0f 84 29 00 00 00            	je	0x336c <_zif_bolt_decrypt+0xdfc>
+    3343: 48 8b 7d a0                  	movq	-96(%rbp), %rdi
+    3347: 48 83 c7 18                  	addq	$24, %rdi
+    334b: 48 83 c7 01                  	addq	$1, %rdi
+    334f: 48 83 c7 08                  	addq	$8, %rdi
+    3353: 48 83 ef 01                  	subq	$1, %rdi
+    3357: 48 83 e7 f8                  	andq	$-8, %rdi
+    335b: e8 b0 09 00 00               	callq	0x3d10 <dyld_stub_binder+0x3d10>
+    3360: 48 89 85 f0 fc ff ff         	movq	%rax, -784(%rbp)
+    3367: e9 37 00 00 00               	jmp	0x33a3 <_zif_bolt_decrypt+0xe33>
+    336c: 48 8b 7d a0                  	movq	-96(%rbp), %rdi
+    3370: 48 83 c7 18                  	addq	$24, %rdi
+    3374: 48 83 c7 01                  	addq	$1, %rdi
+    3378: 48 83 c7 08                  	addq	$8, %rdi
+    337c: 48 83 ef 01                  	subq	$1, %rdi
+    3380: 48 83 e7 f8                  	andq	$-8, %rdi
+    3384: e8 99 09 00 00               	callq	0x3d22 <dyld_stub_binder+0x3d22>
+    3389: 48 89 85 e8 fc ff ff         	movq	%rax, -792(%rbp)
+    3390: 48 8b 85 e8 fc ff ff         	movq	-792(%rbp), %rax
+    3397: 48 89 85 f0 fc ff ff         	movq	%rax, -784(%rbp)
+    339e: e9 00 00 00 00               	jmp	0x33a3 <_zif_bolt_decrypt+0xe33>
+    33a3: 48 8b 85 f0 fc ff ff         	movq	-784(%rbp), %rax
+    33aa: 31 c9                        	xorl	%ecx, %ecx
+    33ac: 48 89 45 90                  	movq	%rax, -112(%rbp)
+    33b0: 48 8b 45 90                  	movq	-112(%rbp), %rax
+    33b4: 48 89 45 b0                  	movq	%rax, -80(%rbp)
+    33b8: c7 45 ac 01 00 00 00         	movl	$1, -84(%rbp)
+    33bf: 8b 55 ac                     	movl	-84(%rbp), %edx
+    33c2: 48 8b 45 b0                  	movq	-80(%rbp), %rax
+    33c6: 89 10                        	movl	%edx, (%rax)
+    33c8: 8a 45 9f                     	movb	-97(%rbp), %al
+    33cb: a8 01                        	testb	$1, %al
+    33cd: b8 80 00 00 00               	movl	$128, %eax
+    33d2: 0f 45 c8                     	cmovnel	%eax, %ecx
+    33d5: 83 c9 16                     	orl	$22, %ecx
+    33d8: 48 8b 45 90                  	movq	-112(%rbp), %rax
+    33dc: 89 48 04                     	movl	%ecx, 4(%rax)
+    33df: 48 8b 45 90                  	movq	-112(%rbp), %rax
+    33e3: 48 c7 40 08 00 00 00 00      	movq	$0, 8(%rax)
+    33eb: 48 8b 4d a0                  	movq	-96(%rbp), %rcx
+    33ef: 48 8b 45 90                  	movq	-112(%rbp), %rax
+    33f3: 48 89 48 10                  	movq	%rcx, 16(%rax)
+    33f7: 48 8b 45 90                  	movq	-112(%rbp), %rax
+    33fb: 48 89 85 38 fd ff ff         	movq	%rax, -712(%rbp)
+    3402: 48 63 85 44 fd ff ff         	movslq	-700(%rbp), %rax
+    3409: 48 8b 8d 48 fd ff ff         	movq	-696(%rbp), %rcx
+    3410: 48 3b 41 10                  	cmpq	16(%rcx), %rax
+    3414: 0f 83 a6 00 00 00            	jae	0x34c0 <_zif_bolt_decrypt+0xf50>
+    341a: 48 8b 85 78 fd ff ff         	movq	-648(%rbp), %rax
+    3421: 48 83 e8 01                  	subq	$1, %rax
+    3425: 89 85 40 fd ff ff            	movl	%eax, -704(%rbp)
+    342b: 48 8b 85 48 fd ff ff         	movq	-696(%rbp), %rax
+    3432: 48 63 8d 44 fd ff ff         	movslq	-700(%rbp), %rcx
+    3439: 8a 54 08 18                  	movb	24(%rax,%rcx), %dl
+    343d: 48 8b 85 38 fd ff ff         	movq	-712(%rbp), %rax
+    3444: 48 63 8d 44 fd ff ff         	movslq	-700(%rbp), %rcx
+    344b: 88 54 08 18                  	movb	%dl, 24(%rax,%rcx)
+    344f: 83 bd 40 fd ff ff 00         	cmpl	$0, -704(%rbp)
+    3456: 0f 8c 50 00 00 00            	jl	0x34ac <_zif_bolt_decrypt+0xf3c>
+    345c: 48 8b 85 38 fd ff ff         	movq	-712(%rbp), %rax
+    3463: 48 63 8d 44 fd ff ff         	movslq	-700(%rbp), %rcx
+    346a: 0f be 44 08 18               	movsbl	24(%rax,%rcx), %eax
+    346f: 48 8b 8d 70 fd ff ff         	movq	-656(%rbp), %rcx
+    3476: 48 63 95 40 fd ff ff         	movslq	-704(%rbp), %rdx
+    347d: 0f be 4c 11 18               	movsbl	24(%rcx,%rdx), %ecx
+    3482: 29 c8                        	subl	%ecx, %eax
+    3484: 88 c2                        	movb	%al, %dl
+    3486: 48 8b 85 38 fd ff ff         	movq	-712(%rbp), %rax
+    348d: 48 63 8d 44 fd ff ff         	movslq	-700(%rbp), %rcx
+    3494: 88 54 08 18                  	movb	%dl, 24(%rax,%rcx)
+    3498: 8b 85 40 fd ff ff            	movl	-704(%rbp), %eax
+    349e: 83 c0 ff                     	addl	$-1, %eax
+    34a1: 89 85 40 fd ff ff            	movl	%eax, -704(%rbp)
+    34a7: e9 a3 ff ff ff               	jmp	0x344f <_zif_bolt_decrypt+0xedf>
+    34ac: 8b 85 44 fd ff ff            	movl	-700(%rbp), %eax
+    34b2: 83 c0 01                     	addl	$1, %eax
+    34b5: 89 85 44 fd ff ff            	movl	%eax, -700(%rbp)
+    34bb: e9 42 ff ff ff               	jmp	0x3402 <_zif_bolt_decrypt+0xe92>
+    34c0: 48 8b 85 38 fd ff ff         	movq	-712(%rbp), %rax
+    34c7: 48 63 8d 44 fd ff ff         	movslq	-700(%rbp), %rcx
+    34ce: c6 44 08 18 00               	movb	$0, 24(%rax,%rcx)
+    34d3: 48 8b 85 48 fd ff ff         	movq	-696(%rbp), %rax
+    34da: 48 89 45 b8                  	movq	%rax, -72(%rbp)
+    34de: 48 8b 45 b8                  	movq	-72(%rbp), %rax
+    34e2: 8b 40 04                     	movl	4(%rax), %eax
+    34e5: 89 45 c0                     	movl	%eax, -64(%rbp)
+    34e8: 8b 45 c0                     	movl	-64(%rbp), %eax
+    34eb: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    34f0: 83 e0 40                     	andl	$64, %eax
+    34f3: 83 f8 00                     	cmpl	$0, %eax
+    34f6: 0f 85 78 00 00 00            	jne	0x3574 <_zif_bolt_decrypt+0x1004>
+    34fc: 48 8b 45 b8                  	movq	-72(%rbp), %rax
+    3500: 48 89 45 c8                  	movq	%rax, -56(%rbp)
+    3504: 48 8b 45 c8                  	movq	-56(%rbp), %rax
+    3508: 83 38 00                     	cmpl	$0, (%rax)
+    350b: 0f 97 c0                     	seta	%al
+    350e: 34 ff                        	xorb	$-1, %al
+    3510: a8 01                        	testb	$1, %al
+    3512: 0f 85 05 00 00 00            	jne	0x351d <_zif_bolt_decrypt+0xfad>
+    3518: e9 02 00 00 00               	jmp	0x351f <_zif_bolt_decrypt+0xfaf>
+    351d: 0f 0b                        	ud2
+    351f: 48 8b 4d c8                  	movq	-56(%rbp), %rcx
+    3523: 8b 01                        	movl	(%rcx), %eax
+    3525: 83 c0 ff                     	addl	$-1, %eax
+    3528: 89 01                        	movl	%eax, (%rcx)
+    352a: 83 f8 00                     	cmpl	$0, %eax
+    352d: 0f 85 3c 00 00 00            	jne	0x356f <_zif_bolt_decrypt+0xfff>
+    3533: 48 8b 45 b8                  	movq	-72(%rbp), %rax
+    3537: 8b 40 04                     	movl	4(%rax), %eax
+    353a: 89 45 c4                     	movl	%eax, -60(%rbp)
+    353d: 8b 45 c4                     	movl	-60(%rbp), %eax
+    3540: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    3545: 25 80 00 00 00               	andl	$128, %eax
+    354a: 83 f8 00                     	cmpl	$0, %eax
+    354d: 0f 84 0e 00 00 00            	je	0x3561 <_zif_bolt_decrypt+0xff1>
+    3553: 48 8b 7d b8                  	movq	-72(%rbp), %rdi
+    3557: e8 f0 07 00 00               	callq	0x3d4c <dyld_stub_binder+0x3d4c>
+    355c: e9 09 00 00 00               	jmp	0x356a <_zif_bolt_decrypt+0xffa>
+    3561: 48 8b 7d b8                  	movq	-72(%rbp), %rdi
+    3565: e8 ac 07 00 00               	callq	0x3d16 <dyld_stub_binder+0x3d16>
+    356a: e9 00 00 00 00               	jmp	0x356f <_zif_bolt_decrypt+0xfff>
+    356f: e9 00 00 00 00               	jmp	0x3574 <_zif_bolt_decrypt+0x1004>
+    3574: 48 8b 85 70 fd ff ff         	movq	-656(%rbp), %rax
+    357b: 48 89 45 d0                  	movq	%rax, -48(%rbp)
+    357f: 48 8b 45 d0                  	movq	-48(%rbp), %rax
+    3583: 8b 40 04                     	movl	4(%rax), %eax
+    3586: 89 45 d8                     	movl	%eax, -40(%rbp)
+    3589: 8b 45 d8                     	movl	-40(%rbp), %eax
+    358c: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    3591: 83 e0 40                     	andl	$64, %eax
+    3594: 83 f8 00                     	cmpl	$0, %eax
+    3597: 0f 85 78 00 00 00            	jne	0x3615 <_zif_bolt_decrypt+0x10a5>
+    359d: 48 8b 45 d0                  	movq	-48(%rbp), %rax
+    35a1: 48 89 45 e0                  	movq	%rax, -32(%rbp)
+    35a5: 48 8b 45 e0                  	movq	-32(%rbp), %rax
+    35a9: 83 38 00                     	cmpl	$0, (%rax)
+    35ac: 0f 97 c0                     	seta	%al
+    35af: 34 ff                        	xorb	$-1, %al
+    35b1: a8 01                        	testb	$1, %al
+    35b3: 0f 85 05 00 00 00            	jne	0x35be <_zif_bolt_decrypt+0x104e>
+    35b9: e9 02 00 00 00               	jmp	0x35c0 <_zif_bolt_decrypt+0x1050>
+    35be: 0f 0b                        	ud2
+    35c0: 48 8b 4d e0                  	movq	-32(%rbp), %rcx
+    35c4: 8b 01                        	movl	(%rcx), %eax
+    35c6: 83 c0 ff                     	addl	$-1, %eax
+    35c9: 89 01                        	movl	%eax, (%rcx)
+    35cb: 83 f8 00                     	cmpl	$0, %eax
+    35ce: 0f 85 3c 00 00 00            	jne	0x3610 <_zif_bolt_decrypt+0x10a0>
+    35d4: 48 8b 45 d0                  	movq	-48(%rbp), %rax
+    35d8: 8b 40 04                     	movl	4(%rax), %eax
+    35db: 89 45 dc                     	movl	%eax, -36(%rbp)
+    35de: 8b 45 dc                     	movl	-36(%rbp), %eax
+    35e1: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    35e6: 25 80 00 00 00               	andl	$128, %eax
+    35eb: 83 f8 00                     	cmpl	$0, %eax
+    35ee: 0f 84 0e 00 00 00            	je	0x3602 <_zif_bolt_decrypt+0x1092>
+    35f4: 48 8b 7d d0                  	movq	-48(%rbp), %rdi
+    35f8: e8 4f 07 00 00               	callq	0x3d4c <dyld_stub_binder+0x3d4c>
+    35fd: e9 09 00 00 00               	jmp	0x360b <_zif_bolt_decrypt+0x109b>
+    3602: 48 8b 7d d0                  	movq	-48(%rbp), %rdi
+    3606: e8 0b 07 00 00               	callq	0x3d16 <dyld_stub_binder+0x3d16>
+    360b: e9 00 00 00 00               	jmp	0x3610 <_zif_bolt_decrypt+0x10a0>
+    3610: e9 00 00 00 00               	jmp	0x3615 <_zif_bolt_decrypt+0x10a5>
+    3615: 31 c0                        	xorl	%eax, %eax
+    3617: 48 89 85 e0 fc ff ff         	movq	%rax, -800(%rbp)
+    361e: 48 8b 85 38 fd ff ff         	movq	-712(%rbp), %rax
+    3625: 48 83 c0 18                  	addq	$24, %rax
+    3629: 48 89 85 d8 fc ff ff         	movq	%rax, -808(%rbp)
+    3630: 48 8b bd 38 fd ff ff         	movq	-712(%rbp), %rdi
+    3637: 48 83 c7 18                  	addq	$24, %rdi
+    363b: e8 36 07 00 00               	callq	0x3d76 <dyld_stub_binder+0x3d76>
+    3640: 48 8b bd d8 fc ff ff         	movq	-808(%rbp), %rdi
+    3647: 48 8b 95 e0 fc ff ff         	movq	-800(%rbp), %rdx
+    364e: 48 89 c6                     	movq	%rax, %rsi
+    3651: 48 8b 8d f8 fd ff ff         	movq	-520(%rbp), %rcx
+    3658: e8 03 01 00 00               	callq	0x3760 <_bolt_ex>
+    365d: 48 8b 85 38 fd ff ff         	movq	-712(%rbp), %rax
+    3664: 48 89 45 e8                  	movq	%rax, -24(%rbp)
+    3668: 48 8b 45 e8                  	movq	-24(%rbp), %rax
+    366c: 8b 40 04                     	movl	4(%rax), %eax
+    366f: 89 45 f0                     	movl	%eax, -16(%rbp)
+    3672: 8b 45 f0                     	movl	-16(%rbp), %eax
+    3675: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    367a: 83 e0 40                     	andl	$64, %eax
+    367d: 83 f8 00                     	cmpl	$0, %eax
+    3680: 0f 85 78 00 00 00            	jne	0x36fe <_zif_bolt_decrypt+0x118e>
+    3686: 48 8b 45 e8                  	movq	-24(%rbp), %rax
+    368a: 48 89 45 f8                  	movq	%rax, -8(%rbp)
+    368e: 48 8b 45 f8                  	movq	-8(%rbp), %rax
+    3692: 83 38 00                     	cmpl	$0, (%rax)
+    3695: 0f 97 c0                     	seta	%al
+    3698: 34 ff                        	xorb	$-1, %al
+    369a: a8 01                        	testb	$1, %al
+    369c: 0f 85 05 00 00 00            	jne	0x36a7 <_zif_bolt_decrypt+0x1137>
+    36a2: e9 02 00 00 00               	jmp	0x36a9 <_zif_bolt_decrypt+0x1139>
+    36a7: 0f 0b                        	ud2
+    36a9: 48 8b 4d f8                  	movq	-8(%rbp), %rcx
+    36ad: 8b 01                        	movl	(%rcx), %eax
+    36af: 83 c0 ff                     	addl	$-1, %eax
+    36b2: 89 01                        	movl	%eax, (%rcx)
+    36b4: 83 f8 00                     	cmpl	$0, %eax
+    36b7: 0f 85 3c 00 00 00            	jne	0x36f9 <_zif_bolt_decrypt+0x1189>
+    36bd: 48 8b 45 e8                  	movq	-24(%rbp), %rax
+    36c1: 8b 40 04                     	movl	4(%rax), %eax
+    36c4: 89 45 f4                     	movl	%eax, -12(%rbp)
+    36c7: 8b 45 f4                     	movl	-12(%rbp), %eax
+    36ca: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    36cf: 25 80 00 00 00               	andl	$128, %eax
+    36d4: 83 f8 00                     	cmpl	$0, %eax
+    36d7: 0f 84 0e 00 00 00            	je	0x36eb <_zif_bolt_decrypt+0x117b>
+    36dd: 48 8b 7d e8                  	movq	-24(%rbp), %rdi
+    36e1: e8 66 06 00 00               	callq	0x3d4c <dyld_stub_binder+0x3d4c>
+    36e6: e9 09 00 00 00               	jmp	0x36f4 <_zif_bolt_decrypt+0x1184>
+    36eb: 48 8b 7d e8                  	movq	-24(%rbp), %rdi
+    36ef: e8 22 06 00 00               	callq	0x3d16 <dyld_stub_binder+0x3d16>
+    36f4: e9 00 00 00 00               	jmp	0x36f9 <_zif_bolt_decrypt+0x1189>
+    36f9: e9 00 00 00 00               	jmp	0x36fe <_zif_bolt_decrypt+0x118e>
+    36fe: e9 00 00 00 00               	jmp	0x3703 <_zif_bolt_decrypt+0x1193>
+    3703: 48 81 c4 30 03 00 00         	addq	$816, %rsp              ## imm = 0x330
+    370a: 5d                           	popq	%rbp
+    370b: c3                           	retq
+    370c: 0f 1f 40 00                  	nopl	(%rax)
+
+0000000000003710 <_strpos>:
+    3710: 55                           	pushq	%rbp
+    3711: 48 89 e5                     	movq	%rsp, %rbp
+    3714: 48 83 ec 20                  	subq	$32, %rsp
+    3718: 48 89 7d f0                  	movq	%rdi, -16(%rbp)
+    371c: 48 89 75 e8                  	movq	%rsi, -24(%rbp)
+    3720: 48 8b 7d f0                  	movq	-16(%rbp), %rdi
+    3724: 48 8b 75 e8                  	movq	-24(%rbp), %rsi
+    3728: e8 55 06 00 00               	callq	0x3d82 <dyld_stub_binder+0x3d82>
+    372d: 48 89 45 e0                  	movq	%rax, -32(%rbp)
+    3731: 48 83 7d e0 00               	cmpq	$0, -32(%rbp)
+    3736: 0f 84 13 00 00 00            	je	0x374f <_strpos+0x3f>
+    373c: 48 8b 45 e0                  	movq	-32(%rbp), %rax
+    3740: 48 8b 4d f0                  	movq	-16(%rbp), %rcx
+    3744: 48 29 c8                     	subq	%rcx, %rax
+    3747: 89 45 fc                     	movl	%eax, -4(%rbp)
+    374a: e9 07 00 00 00               	jmp	0x3756 <_strpos+0x46>
+    374f: c7 45 fc ff ff ff ff         	movl	$4294967295, -4(%rbp)   ## imm = 0xFFFFFFFF
+    3756: 8b 45 fc                     	movl	-4(%rbp), %eax
+    3759: 48 83 c4 20                  	addq	$32, %rsp
+    375d: 5d                           	popq	%rbp
+    375e: c3                           	retq
+    375f: 90                           	nop
+
+0000000000003760 <_bolt_ex>:
+    3760: 55                           	pushq	%rbp
+    3761: 48 89 e5                     	movq	%rsp, %rbp
+    3764: 48 81 ec 90 01 00 00         	subq	$400, %rsp              ## imm = 0x190
+    376b: 48 8b 05 8e 08 00 00         	movq	2190(%rip), %rax        ## 0x4000 <dyld_stub_binder+0x4000>
+    3772: 48 8b 00                     	movq	(%rax), %rax
+    3775: 48 89 45 f8                  	movq	%rax, -8(%rbp)
+    3779: 48 89 bd f0 fe ff ff         	movq	%rdi, -272(%rbp)
+    3780: 48 89 b5 e8 fe ff ff         	movq	%rsi, -280(%rbp)
+    3787: 48 89 95 e0 fe ff ff         	movq	%rdx, -288(%rbp)
+    378e: 48 89 8d d8 fe ff ff         	movq	%rcx, -296(%rbp)
+    3795: 48 83 bd e0 fe ff ff 00      	cmpq	$0, -288(%rbp)
+    379d: 0f 84 38 00 00 00            	je	0x37db <_bolt_ex+0x7b>
+    37a3: 48 8b 95 f0 fe ff ff         	movq	-272(%rbp), %rdx
+    37aa: 48 8b 8d e8 fe ff ff         	movq	-280(%rbp), %rcx
+    37b1: 48 8d 3d ab 07 00 00         	leaq	1963(%rip), %rdi        ## 0x3f63 <dyld_stub_binder+0x3f63>
+    37b8: be 07 00 00 00               	movl	$7, %esi
+    37bd: 4c 8d 05 a7 07 00 00         	leaq	1959(%rip), %r8         ## 0x3f6b <dyld_stub_binder+0x3f6b>
+    37c4: 41 b9 01 00 00 00            	movl	$1, %r9d
+    37ca: e8 cb 05 00 00               	callq	0x3d9a <dyld_stub_binder+0x3d9a>
+    37cf: 48 89 85 c0 fe ff ff         	movq	%rax, -320(%rbp)
+    37d6: e9 7b 01 00 00               	jmp	0x3956 <_bolt_ex+0x1f6>
+    37db: 48 8b 8d f0 fe ff ff         	movq	-272(%rbp), %rcx
+    37e2: 48 8b 85 e8 fe ff ff         	movq	-280(%rbp), %rax
+    37e9: 48 89 8d 10 ff ff ff         	movq	%rcx, -240(%rbp)
+    37f0: 48 89 85 08 ff ff ff         	movq	%rax, -248(%rbp)
+    37f7: c6 85 07 ff ff ff 00         	movb	$0, -249(%rbp)
+    37fe: 48 8b 8d 08 ff ff ff         	movq	-248(%rbp), %rcx
+    3805: 8a 85 07 ff ff ff            	movb	-249(%rbp), %al
+    380b: 48 89 8d 28 ff ff ff         	movq	%rcx, -216(%rbp)
+    3812: 24 01                        	andb	$1, %al
+    3814: 88 85 27 ff ff ff            	movb	%al, -217(%rbp)
+    381a: f6 85 27 ff ff ff 01         	testb	$1, -217(%rbp)
+    3821: 0f 84 2c 00 00 00            	je	0x3853 <_bolt_ex+0xf3>
+    3827: 48 8b bd 28 ff ff ff         	movq	-216(%rbp), %rdi
+    382e: 48 83 c7 18                  	addq	$24, %rdi
+    3832: 48 83 c7 01                  	addq	$1, %rdi
+    3836: 48 83 c7 08                  	addq	$8, %rdi
+    383a: 48 83 ef 01                  	subq	$1, %rdi
+    383e: 48 83 e7 f8                  	andq	$-8, %rdi
+    3842: e8 c9 04 00 00               	callq	0x3d10 <dyld_stub_binder+0x3d10>
+    3847: 48 89 85 80 fe ff ff         	movq	%rax, -384(%rbp)
+    384e: e9 3a 00 00 00               	jmp	0x388d <_bolt_ex+0x12d>
+    3853: 48 8b bd 28 ff ff ff         	movq	-216(%rbp), %rdi
+    385a: 48 83 c7 18                  	addq	$24, %rdi
+    385e: 48 83 c7 01                  	addq	$1, %rdi
+    3862: 48 83 c7 08                  	addq	$8, %rdi
+    3866: 48 83 ef 01                  	subq	$1, %rdi
+    386a: 48 83 e7 f8                  	andq	$-8, %rdi
+    386e: e8 af 04 00 00               	callq	0x3d22 <dyld_stub_binder+0x3d22>
+    3873: 48 89 85 78 fe ff ff         	movq	%rax, -392(%rbp)
+    387a: 48 8b 85 78 fe ff ff         	movq	-392(%rbp), %rax
+    3881: 48 89 85 80 fe ff ff         	movq	%rax, -384(%rbp)
+    3888: e9 00 00 00 00               	jmp	0x388d <_bolt_ex+0x12d>
+    388d: 48 8b 85 80 fe ff ff         	movq	-384(%rbp), %rax
+    3894: 31 c9                        	xorl	%ecx, %ecx
+    3896: 48 89 85 18 ff ff ff         	movq	%rax, -232(%rbp)
+    389d: 48 8b 85 18 ff ff ff         	movq	-232(%rbp), %rax
+    38a4: 48 89 85 38 ff ff ff         	movq	%rax, -200(%rbp)
+    38ab: c7 85 34 ff ff ff 01 00 00 00	movl	$1, -204(%rbp)
+    38b5: 8b 95 34 ff ff ff            	movl	-204(%rbp), %edx
+    38bb: 48 8b 85 38 ff ff ff         	movq	-200(%rbp), %rax
+    38c2: 89 10                        	movl	%edx, (%rax)
+    38c4: 8a 85 27 ff ff ff            	movb	-217(%rbp), %al
+    38ca: a8 01                        	testb	$1, %al
+    38cc: b8 80 00 00 00               	movl	$128, %eax
+    38d1: 0f 45 c8                     	cmovnel	%eax, %ecx
+    38d4: 83 c9 16                     	orl	$22, %ecx
+    38d7: 48 8b 85 18 ff ff ff         	movq	-232(%rbp), %rax
+    38de: 89 48 04                     	movl	%ecx, 4(%rax)
+    38e1: 48 8b 85 18 ff ff ff         	movq	-232(%rbp), %rax
+    38e8: 48 c7 40 08 00 00 00 00      	movq	$0, 8(%rax)
+    38f0: 48 8b 8d 28 ff ff ff         	movq	-216(%rbp), %rcx
+    38f7: 48 8b 85 18 ff ff ff         	movq	-232(%rbp), %rax
+    38fe: 48 89 48 10                  	movq	%rcx, 16(%rax)
+    3902: 48 8b 85 18 ff ff ff         	movq	-232(%rbp), %rax
+    3909: 48 89 85 f8 fe ff ff         	movq	%rax, -264(%rbp)
+    3910: 48 8b bd f8 fe ff ff         	movq	-264(%rbp), %rdi
+    3917: 48 83 c7 18                  	addq	$24, %rdi
+    391b: 48 8b b5 10 ff ff ff         	movq	-240(%rbp), %rsi
+    3922: 48 8b 95 08 ff ff ff         	movq	-248(%rbp), %rdx
+    3929: 48 c7 c1 ff ff ff ff         	movq	$-1, %rcx
+    3930: e8 c9 03 00 00               	callq	0x3cfe <dyld_stub_binder+0x3cfe>
+    3935: 48 8b 85 f8 fe ff ff         	movq	-264(%rbp), %rax
+    393c: 48 8b 8d 08 ff ff ff         	movq	-248(%rbp), %rcx
+    3943: c6 44 08 18 00               	movb	$0, 24(%rax,%rcx)
+    3948: 48 8b 85 f8 fe ff ff         	movq	-264(%rbp), %rax
+    394f: 48 89 85 c0 fe ff ff         	movq	%rax, -320(%rbp)
+    3956: 48 8b 05 bb 06 00 00         	movq	1723(%rip), %rax        ## 0x4018 <dyld_stub_binder+0x4018>
+    395d: 48 8b 0d a4 06 00 00         	movq	1700(%rip), %rcx        ## 0x4008 <dyld_stub_binder+0x4008>
+    3964: 8b 91 ac 00 00 00            	movl	172(%rcx), %edx
+    396a: 89 95 cc fe ff ff            	movl	%edx, -308(%rbp)
+    3970: c7 81 ac 00 00 00 00 00 00 00	movl	$0, 172(%rcx)
+    397a: 48 8b 00                     	movq	(%rax), %rax
+    397d: 48 8b bd c0 fe ff ff         	movq	-320(%rbp), %rdi
+    3984: 48 8b b5 d8 fe ff ff         	movq	-296(%rbp), %rsi
+    398b: ff d0                        	callq	*%rax
+    398d: 48 89 c1                     	movq	%rax, %rcx
+    3990: 48 8b 05 71 06 00 00         	movq	1649(%rip), %rax        ## 0x4008 <dyld_stub_binder+0x4008>
+    3997: 48 89 8d d0 fe ff ff         	movq	%rcx, -304(%rbp)
+    399e: 8b 8d cc fe ff ff            	movl	-308(%rbp), %ecx
+    39a4: 89 88 ac 00 00 00            	movl	%ecx, 172(%rax)
+    39aa: 48 83 bd d0 fe ff ff 00      	cmpq	$0, -304(%rbp)
+    39b2: 0f 84 dc 01 00 00            	je	0x3b94 <_bolt_ex+0x434>
+    39b8: 48 8b 05 51 06 00 00         	movq	1617(%rip), %rax        ## 0x4010 <dyld_stub_binder+0x4010>
+    39bf: c6 80 21 02 00 00 01         	movb	$1, 545(%rax)
+    39c6: e8 c3 03 00 00               	callq	0x3d8e <dyld_stub_binder+0x3d8e>
+    39cb: 48 89 c2                     	movq	%rax, %rdx
+    39ce: 31 f6                        	xorl	%esi, %esi
+    39d0: 48 8d bd 60 ff ff ff         	leaq	-160(%rbp), %rdi
+    39d7: 48 8b 05 32 06 00 00         	movq	1586(%rip), %rax        ## 0x4010 <dyld_stub_binder+0x4010>
+    39de: 48 8b 8d d0 fe ff ff         	movq	-304(%rbp), %rcx
+    39e5: 48 89 51 10                  	movq	%rdx, 16(%rcx)
+    39e9: 48 8b 88 a0 01 00 00         	movq	416(%rax), %rcx
+    39f0: 48 89 8d a8 fe ff ff         	movq	%rcx, -344(%rbp)
+    39f7: 48 89 b8 a0 01 00 00         	movq	%rdi, 416(%rax)
+    39fe: e8 6d 03 00 00               	callq	0x3d70 <dyld_stub_binder+0x3d70>
+    3a03: 83 f8 00                     	cmpl	$0, %eax
+    3a06: 0f 85 27 00 00 00            	jne	0x3a33 <_bolt_ex+0x2d3>
+    3a0c: e9 00 00 00 00               	jmp	0x3a11 <_bolt_ex+0x2b1>
+    3a11: c7 85 b8 fe ff ff 00 00 00 00	movl	$0, -328(%rbp)
+    3a1b: 48 8b bd d0 fe ff ff         	movq	-304(%rbp), %rdi
+    3a22: 48 8d b5 b0 fe ff ff         	leaq	-336(%rbp), %rsi
+    3a29: e8 5a 03 00 00               	callq	0x3d88 <dyld_stub_binder+0x3d88>
+    3a2e: e9 3e 00 00 00               	jmp	0x3a71 <_bolt_ex+0x311>
+    3a33: 48 8b 05 d6 05 00 00         	movq	1494(%rip), %rax        ## 0x4010 <dyld_stub_binder+0x4010>
+    3a3a: 48 8b 8d a8 fe ff ff         	movq	-344(%rbp), %rcx
+    3a41: 48 89 88 a0 01 00 00         	movq	%rcx, 416(%rax)
+    3a48: 48 8b bd d0 fe ff ff         	movq	-304(%rbp), %rdi
+    3a4f: e8 f2 02 00 00               	callq	0x3d46 <dyld_stub_binder+0x3d46>
+    3a54: 48 8b bd d0 fe ff ff         	movq	-304(%rbp), %rdi
+    3a5b: e8 bc 02 00 00               	callq	0x3d1c <dyld_stub_binder+0x3d1c>
+    3a60: 48 8d 3d 06 05 00 00         	leaq	1286(%rip), %rdi        ## 0x3f6d <dyld_stub_binder+0x3f6d>
+    3a67: be ed 00 00 00               	movl	$237, %esi
+    3a6c: e8 cf 02 00 00               	callq	0x3d40 <dyld_stub_binder+0x3d40>
+    3a71: 48 8b 05 98 05 00 00         	movq	1432(%rip), %rax        ## 0x4010 <dyld_stub_binder+0x4010>
+    3a78: 48 8b 8d a8 fe ff ff         	movq	-344(%rbp), %rcx
+    3a7f: 48 89 88 a0 01 00 00         	movq	%rcx, 416(%rax)
+    3a86: 48 8d 85 b0 fe ff ff         	leaq	-336(%rbp), %rax
+    3a8d: 48 89 85 40 ff ff ff         	movq	%rax, -192(%rbp)
+    3a94: 48 8b 85 40 ff ff ff         	movq	-192(%rbp), %rax
+    3a9b: 0f b6 40 08                  	movzbl	8(%rax), %eax
+    3a9f: 83 f8 00                     	cmpl	$0, %eax
+    3aa2: 0f 84 8c 00 00 00            	je	0x3b34 <_bolt_ex+0x3d4>
+    3aa8: 48 83 bd e0 fe ff ff 00      	cmpq	$0, -288(%rbp)
+    3ab0: 0f 84 6d 00 00 00            	je	0x3b23 <_bolt_ex+0x3c3>
+    3ab6: e9 00 00 00 00               	jmp	0x3abb <_bolt_ex+0x35b>
+    3abb: 48 8b 85 e0 fe ff ff         	movq	-288(%rbp), %rax
+    3ac2: 48 89 85 a0 fe ff ff         	movq	%rax, -352(%rbp)
+    3ac9: 48 8d 85 b0 fe ff ff         	leaq	-336(%rbp), %rax
+    3ad0: 48 89 85 98 fe ff ff         	movq	%rax, -360(%rbp)
+    3ad7: 48 8b 85 98 fe ff ff         	movq	-360(%rbp), %rax
+    3ade: 48 8b 00                     	movq	(%rax), %rax
+    3ae1: 48 89 85 90 fe ff ff         	movq	%rax, -368(%rbp)
+    3ae8: 48 8b 85 98 fe ff ff         	movq	-360(%rbp), %rax
+    3aef: 8b 40 08                     	movl	8(%rax), %eax
+    3af2: 89 85 8c fe ff ff            	movl	%eax, -372(%rbp)
+    3af8: 48 8b 8d 90 fe ff ff         	movq	-368(%rbp), %rcx
+    3aff: 48 8b 85 a0 fe ff ff         	movq	-352(%rbp), %rax
+    3b06: 48 89 08                     	movq	%rcx, (%rax)
+    3b09: 8b 8d 8c fe ff ff            	movl	-372(%rbp), %ecx
+    3b0f: 48 8b 85 a0 fe ff ff         	movq	-352(%rbp), %rax
+    3b16: 89 48 08                     	movl	%ecx, 8(%rax)
+    3b19: e9 00 00 00 00               	jmp	0x3b1e <_bolt_ex+0x3be>
+    3b1e: e9 0c 00 00 00               	jmp	0x3b2f <_bolt_ex+0x3cf>
+    3b23: 48 8d bd b0 fe ff ff         	leaq	-336(%rbp), %rdi
+    3b2a: e8 7d 02 00 00               	callq	0x3dac <dyld_stub_binder+0x3dac>
+    3b2f: e9 2b 00 00 00               	jmp	0x3b5f <_bolt_ex+0x3ff>
+    3b34: 48 83 bd e0 fe ff ff 00      	cmpq	$0, -288(%rbp)
+    3b3c: 0f 84 18 00 00 00            	je	0x3b5a <_bolt_ex+0x3fa>
+    3b42: e9 00 00 00 00               	jmp	0x3b47 <_bolt_ex+0x3e7>
+    3b47: 48 8b 85 e0 fe ff ff         	movq	-288(%rbp), %rax
+    3b4e: c7 40 08 01 00 00 00         	movl	$1, 8(%rax)
+    3b55: e9 00 00 00 00               	jmp	0x3b5a <_bolt_ex+0x3fa>
+    3b5a: e9 00 00 00 00               	jmp	0x3b5f <_bolt_ex+0x3ff>
+    3b5f: 48 8b 05 aa 04 00 00         	movq	1194(%rip), %rax        ## 0x4010 <dyld_stub_binder+0x4010>
+    3b66: c6 80 21 02 00 00 00         	movb	$0, 545(%rax)
+    3b6d: 48 8b bd d0 fe ff ff         	movq	-304(%rbp), %rdi
+    3b74: e8 cd 01 00 00               	callq	0x3d46 <dyld_stub_binder+0x3d46>
+    3b79: 48 8b bd d0 fe ff ff         	movq	-304(%rbp), %rdi
+    3b80: e8 97 01 00 00               	callq	0x3d1c <dyld_stub_binder+0x3d1c>
+    3b85: c7 85 c8 fe ff ff 00 00 00 00	movl	$0, -312(%rbp)
+    3b8f: e9 0a 00 00 00               	jmp	0x3b9e <_bolt_ex+0x43e>
+    3b94: c7 85 c8 fe ff ff ff ff ff ff	movl	$4294967295, -312(%rbp) ## imm = 0xFFFFFFFF
+    3b9e: 48 8b 85 c0 fe ff ff         	movq	-320(%rbp), %rax
+    3ba5: 48 89 85 48 ff ff ff         	movq	%rax, -184(%rbp)
+    3bac: 48 8b 85 48 ff ff ff         	movq	-184(%rbp), %rax
+    3bb3: 8b 40 04                     	movl	4(%rax), %eax
+    3bb6: 89 85 50 ff ff ff            	movl	%eax, -176(%rbp)
+    3bbc: 8b 85 50 ff ff ff            	movl	-176(%rbp), %eax
+    3bc2: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    3bc7: 83 e0 40                     	andl	$64, %eax
+    3bca: 83 f8 00                     	cmpl	$0, %eax
+    3bcd: 0f 85 93 00 00 00            	jne	0x3c66 <_bolt_ex+0x506>
+    3bd3: 48 8b 85 48 ff ff ff         	movq	-184(%rbp), %rax
+    3bda: 48 89 85 58 ff ff ff         	movq	%rax, -168(%rbp)
+    3be1: 48 8b 85 58 ff ff ff         	movq	-168(%rbp), %rax
+    3be8: 83 38 00                     	cmpl	$0, (%rax)
+    3beb: 0f 97 c0                     	seta	%al
+    3bee: 34 ff                        	xorb	$-1, %al
+    3bf0: a8 01                        	testb	$1, %al
+    3bf2: 0f 85 05 00 00 00            	jne	0x3bfd <_bolt_ex+0x49d>
+    3bf8: e9 02 00 00 00               	jmp	0x3bff <_bolt_ex+0x49f>
+    3bfd: 0f 0b                        	ud2
+    3bff: 48 8b 8d 58 ff ff ff         	movq	-168(%rbp), %rcx
+    3c06: 8b 01                        	movl	(%rcx), %eax
+    3c08: 83 c0 ff                     	addl	$-1, %eax
+    3c0b: 89 01                        	movl	%eax, (%rcx)
+    3c0d: 83 f8 00                     	cmpl	$0, %eax
+    3c10: 0f 85 4b 00 00 00            	jne	0x3c61 <_bolt_ex+0x501>
+    3c16: 48 8b 85 48 ff ff ff         	movq	-184(%rbp), %rax
+    3c1d: 8b 40 04                     	movl	4(%rax), %eax
+    3c20: 89 85 54 ff ff ff            	movl	%eax, -172(%rbp)
+    3c26: 8b 85 54 ff ff ff            	movl	-172(%rbp), %eax
+    3c2c: 25 f0 03 00 00               	andl	$1008, %eax             ## imm = 0x3F0
+    3c31: 25 80 00 00 00               	andl	$128, %eax
+    3c36: 83 f8 00                     	cmpl	$0, %eax
+    3c39: 0f 84 11 00 00 00            	je	0x3c50 <_bolt_ex+0x4f0>
+    3c3f: 48 8b bd 48 ff ff ff         	movq	-184(%rbp), %rdi
+    3c46: e8 01 01 00 00               	callq	0x3d4c <dyld_stub_binder+0x3d4c>
+    3c4b: e9 0c 00 00 00               	jmp	0x3c5c <_bolt_ex+0x4fc>
+    3c50: 48 8b bd 48 ff ff ff         	movq	-184(%rbp), %rdi
+    3c57: e8 ba 00 00 00               	callq	0x3d16 <dyld_stub_binder+0x3d16>
+    3c5c: e9 00 00 00 00               	jmp	0x3c61 <_bolt_ex+0x501>
+    3c61: e9 00 00 00 00               	jmp	0x3c66 <_bolt_ex+0x506>
+    3c66: 8b 85 c8 fe ff ff            	movl	-312(%rbp), %eax
+    3c6c: 89 85 74 fe ff ff            	movl	%eax, -396(%rbp)
+    3c72: 48 8b 05 87 03 00 00         	movq	903(%rip), %rax         ## 0x4000 <dyld_stub_binder+0x4000>
+    3c79: 48 8b 00                     	movq	(%rax), %rax
+    3c7c: 48 8b 4d f8                  	movq	-8(%rbp), %rcx
+    3c80: 48 39 c8                     	cmpq	%rcx, %rax
+    3c83: 0f 85 0f 00 00 00            	jne	0x3c98 <_bolt_ex+0x538>
+    3c89: 8b 85 74 fe ff ff            	movl	-396(%rbp), %eax
+    3c8f: 48 81 c4 90 01 00 00         	addq	$400, %rsp              ## imm = 0x190
+    3c96: 5d                           	popq	%rbp
+    3c97: c3                           	retq
+    3c98: e8 6d 00 00 00               	callq	0x3d0a <dyld_stub_binder+0x3d0a>
+    3c9d: 0f 0b                        	ud2
+    3c9f: 90                           	nop
+
+0000000000003ca0 <_zm_activate_bolt>:
+    3ca0: 55                           	pushq	%rbp
+    3ca1: 48 89 e5                     	movq	%rsp, %rbp
+    3ca4: 31 c0                        	xorl	%eax, %eax
+    3ca6: 89 7d fc                     	movl	%edi, -4(%rbp)
+    3ca9: 89 75 f8                     	movl	%esi, -8(%rbp)
+    3cac: 5d                           	popq	%rbp
+    3cad: c3                           	retq
+    3cae: 66 90                        	nop
+
+0000000000003cb0 <_zm_info_bolt>:
+    3cb0: 55                           	pushq	%rbp
+    3cb1: 48 89 e5                     	movq	%rsp, %rbp
+    3cb4: 48 83 ec 10                  	subq	$16, %rsp
+    3cb8: 48 89 7d f8                  	movq	%rdi, -8(%rbp)
+    3cbc: e8 a9 00 00 00               	callq	0x3d6a <dyld_stub_binder+0x3d6a>
+    3cc1: bf 02 00 00 00               	movl	$2, %edi
+    3cc6: 48 8d 35 45 02 00 00         	leaq	581(%rip), %rsi         ## 0x3f12 <dyld_stub_binder+0x3f12>
+    3ccd: 48 8d 15 4b 02 00 00         	leaq	587(%rip), %rdx         ## 0x3f1f <dyld_stub_binder+0x3f1f>
+    3cd4: b0 00                        	movb	$0, %al
+    3cd6: e8 89 00 00 00               	callq	0x3d64 <dyld_stub_binder+0x3d64>
+    3cdb: e8 7e 00 00 00               	callq	0x3d5e <dyld_stub_binder+0x3d5e>
+    3ce0: 48 83 c4 10                  	addq	$16, %rsp
+    3ce4: 5d                           	popq	%rbp
+    3ce5: c3                           	retq
+    3ce6: 66 2e 0f 1f 84 00 00 00 00 00	nopw	%cs:(%rax,%rax)
+
+0000000000003cf0 <_get_module>:
+    3cf0: 55                           	pushq	%rbp
+    3cf1: 48 89 e5                     	movq	%rsp, %rbp
+    3cf4: 48 8d 05 fd 43 00 00         	leaq	17405(%rip), %rax       ## 0x80f8 <_bolt_module_entry>
+    3cfb: 5d                           	popq	%rbp
+    3cfc: c3                           	retq
+
+Disassembly of section __TEXT,__stubs:
+
+0000000000003cfe <__stubs>:
+    3cfe: ff 25 fc 42 00 00            	jmpq	*17148(%rip)            ## 0x8000 <dyld_stub_binder+0x8000>
+    3d04: ff 25 fe 42 00 00            	jmpq	*17150(%rip)            ## 0x8008 <dyld_stub_binder+0x8008>
+    3d0a: ff 25 00 43 00 00            	jmpq	*17152(%rip)            ## 0x8010 <dyld_stub_binder+0x8010>
+    3d10: ff 25 02 43 00 00            	jmpq	*17154(%rip)            ## 0x8018 <dyld_stub_binder+0x8018>
+    3d16: ff 25 04 43 00 00            	jmpq	*17156(%rip)            ## 0x8020 <dyld_stub_binder+0x8020>
+    3d1c: ff 25 06 43 00 00            	jmpq	*17158(%rip)            ## 0x8028 <dyld_stub_binder+0x8028>
+    3d22: ff 25 08 43 00 00            	jmpq	*17160(%rip)            ## 0x8030 <dyld_stub_binder+0x8030>
+    3d28: ff 25 0a 43 00 00            	jmpq	*17162(%rip)            ## 0x8038 <dyld_stub_binder+0x8038>
+    3d2e: ff 25 0c 43 00 00            	jmpq	*17164(%rip)            ## 0x8040 <dyld_stub_binder+0x8040>
+    3d34: ff 25 0e 43 00 00            	jmpq	*17166(%rip)            ## 0x8048 <dyld_stub_binder+0x8048>
+    3d3a: ff 25 10 43 00 00            	jmpq	*17168(%rip)            ## 0x8050 <dyld_stub_binder+0x8050>
+    3d40: ff 25 12 43 00 00            	jmpq	*17170(%rip)            ## 0x8058 <dyld_stub_binder+0x8058>
+    3d46: ff 25 14 43 00 00            	jmpq	*17172(%rip)            ## 0x8060 <dyld_stub_binder+0x8060>
+    3d4c: ff 25 16 43 00 00            	jmpq	*17174(%rip)            ## 0x8068 <dyld_stub_binder+0x8068>
+    3d52: ff 25 18 43 00 00            	jmpq	*17176(%rip)            ## 0x8070 <dyld_stub_binder+0x8070>
+    3d58: ff 25 1a 43 00 00            	jmpq	*17178(%rip)            ## 0x8078 <dyld_stub_binder+0x8078>
+    3d5e: ff 25 1c 43 00 00            	jmpq	*17180(%rip)            ## 0x8080 <dyld_stub_binder+0x8080>
+    3d64: ff 25 1e 43 00 00            	jmpq	*17182(%rip)            ## 0x8088 <dyld_stub_binder+0x8088>
+    3d6a: ff 25 20 43 00 00            	jmpq	*17184(%rip)            ## 0x8090 <dyld_stub_binder+0x8090>
+    3d70: ff 25 22 43 00 00            	jmpq	*17186(%rip)            ## 0x8098 <dyld_stub_binder+0x8098>
+    3d76: ff 25 24 43 00 00            	jmpq	*17188(%rip)            ## 0x80a0 <dyld_stub_binder+0x80a0>
+    3d7c: ff 25 26 43 00 00            	jmpq	*17190(%rip)            ## 0x80a8 <dyld_stub_binder+0x80a8>
+    3d82: ff 25 28 43 00 00            	jmpq	*17192(%rip)            ## 0x80b0 <dyld_stub_binder+0x80b0>
+    3d88: ff 25 2a 43 00 00            	jmpq	*17194(%rip)            ## 0x80b8 <dyld_stub_binder+0x80b8>
+    3d8e: ff 25 2c 43 00 00            	jmpq	*17196(%rip)            ## 0x80c0 <dyld_stub_binder+0x80c0>
+    3d94: ff 25 2e 43 00 00            	jmpq	*17198(%rip)            ## 0x80c8 <dyld_stub_binder+0x80c8>
+    3d9a: ff 25 30 43 00 00            	jmpq	*17200(%rip)            ## 0x80d0 <dyld_stub_binder+0x80d0>
+    3da0: ff 25 32 43 00 00            	jmpq	*17202(%rip)            ## 0x80d8 <dyld_stub_binder+0x80d8>
+    3da6: ff 25 34 43 00 00            	jmpq	*17204(%rip)            ## 0x80e0 <dyld_stub_binder+0x80e0>
+    3dac: ff 25 36 43 00 00            	jmpq	*17206(%rip)            ## 0x80e8 <dyld_stub_binder+0x80e8>
+
+Disassembly of section __TEXT,__stub_helper:
+
+0000000000003db4 <__stub_helper>:
+    3db4: 68 40 00 00 00               	pushq	$64
+    3db9: e9 d2 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3dbe: 68 55 00 00 00               	pushq	$85
+    3dc3: e9 c8 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3dc8: 68 63 00 00 00               	pushq	$99
+    3dcd: e9 be 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3dd2: 68 75 00 00 00               	pushq	$117
+    3dd7: e9 b4 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3ddc: 68 85 00 00 00               	pushq	$133
+    3de1: e9 aa 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3de6: 68 a4 00 00 00               	pushq	$164
+    3deb: e9 a0 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3df0: 68 c7 00 00 00               	pushq	$199
+    3df5: e9 96 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3dfa: 68 df 00 00 00               	pushq	$223
+    3dff: e9 8c 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e04: 68 f7 00 00 00               	pushq	$247
+    3e09: e9 82 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e0e: 68 0c 01 00 00               	pushq	$268                    ## imm = 0x10C
+    3e13: e9 78 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e18: 68 30 01 00 00               	pushq	$304                    ## imm = 0x130
+    3e1d: e9 6e 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e22: 68 4c 01 00 00               	pushq	$332                    ## imm = 0x14C
+    3e27: e9 64 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e2c: 68 65 01 00 00               	pushq	$357                    ## imm = 0x165
+    3e31: e9 5a 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e36: 68 86 01 00 00               	pushq	$390                    ## imm = 0x186
+    3e3b: e9 50 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e40: 68 aa 01 00 00               	pushq	$426                    ## imm = 0x1AA
+    3e45: e9 46 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e4a: 68 0c 02 00 00               	pushq	$524                    ## imm = 0x20C
+    3e4f: e9 3c 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e54: 68 21 02 00 00               	pushq	$545                    ## imm = 0x221
+    3e59: e9 32 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e5e: 68 41 02 00 00               	pushq	$577                    ## imm = 0x241
+    3e63: e9 28 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e68: 68 61 02 00 00               	pushq	$609                    ## imm = 0x261
+    3e6d: e9 1e 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e72: 68 7d 02 00 00               	pushq	$637                    ## imm = 0x27D
+    3e77: e9 14 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e7c: 68 a0 02 00 00               	pushq	$672                    ## imm = 0x2A0
+    3e81: e9 0a 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e86: 68 ca 02 00 00               	pushq	$714                    ## imm = 0x2CA
+    3e8b: e9 00 00 00 00               	jmp	0x3e90 <__stub_helper+0xdc>
+    3e90: 4c 8d 1d 59 42 00 00         	leaq	16985(%rip), %r11       ## 0x80f0 <__dyld_private>
+    3e97: 41 53                        	pushq	%r11
+    3e99: ff 25 81 01 00 00            	jmpq	*385(%rip)              ## 0x4020 <dyld_stub_binder+0x4020>
+    3e9f: 90                           	nop
+    3ea0: 68 ee 01 00 00               	pushq	$494                    ## imm = 0x1EE
+    3ea5: e9 e6 ff ff ff               	jmp	0x3e90 <__stub_helper+0xdc>
+    3eaa: 68 00 00 00 00               	pushq	$0
+    3eaf: e9 dc ff ff ff               	jmp	0x3e90 <__stub_helper+0xdc>
+    3eb4: 68 14 00 00 00               	pushq	$20
+    3eb9: e9 d2 ff ff ff               	jmp	0x3e90 <__stub_helper+0xdc>
+    3ebe: 68 28 00 00 00               	pushq	$40
+    3ec3: e9 c8 ff ff ff               	jmp	0x3e90 <__stub_helper+0xdc>
+    3ec8: 68 24 01 00 00               	pushq	$292                    ## imm = 0x124
+    3ecd: e9 be ff ff ff               	jmp	0x3e90 <__stub_helper+0xdc>
+    3ed2: 68 cd 01 00 00               	pushq	$461                    ## imm = 0x1CD
+    3ed7: e9 b4 ff ff ff               	jmp	0x3e90 <__stub_helper+0xdc>
+    3edc: 68 df 01 00 00               	pushq	$479                    ## imm = 0x1DF
+    3ee1: e9 aa ff ff ff               	jmp	0x3e90 <__stub_helper+0xdc>
+    3ee6: 68 fd 01 00 00               	pushq	$509                    ## imm = 0x1FD
+    3eeb: e9 a0 ff ff ff               	jmp	0x3e90 <__stub_helper+0xdc>

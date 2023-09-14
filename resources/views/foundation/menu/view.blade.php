@@ -1,0 +1,58 @@
+@extends("common.view")
+@section('form')
+<div>
+<div class="layui-form-item">
+                    <label class="layui-form-label admin-form-required">上级菜单</label>
+                    <div class="layui-input-block">
+                        <select name="p_id" lay-verify="required" id="auth_menu" lay-search>
+                            <option value="0">顶部菜单</option>
+                            @foreach($data['menu'] as $v)
+                            <option value="{{$v['id']}}" rank="{{$v['rank']}}"  {{$data['data']['p_id'] == $v['id']?"selected":''}}>{{$v['title']}}</option>
+                            @endforeach
+                        </select>
+                        <p class="admin-form-tips">请选择上级菜单或顶级菜单 ( 目前最多支持三级菜单 )</p>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label admin-form-required">菜单名称</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="title" placeholder="请输入菜单名称" maxlength="6" lay-verify="required" value="{{$data['data']['title']??''}}">
+                        <p class="admin-form-tips">请填写菜单名称 ( 如：系统管理 )，建议字符不要太长，一般 4-6 个汉字</p>
+                    </div>
+                </div>
+
+                <div class="layui-form-item auth">
+                    <label class="layui-form-label admin-form-required">菜单识别符</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="auth_sig" placeholder="请输入识别符" maxlength="20" value="{{$data['data']['auth_sig']??''}}">
+                        <p class="admin-form-tips">请填写菜单识别符 ( 如：admin, system )，建议字符不要太长，一般 1-20 个英文字</p>
+                    </div>
+                </div>
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">菜单图标</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" id="iconPicker" class="myIcon" placeholder="选择图标" lay-event="iconPicker" value="{{$data['data']['icon']??''}}">
+                        <p class="admin-form-tips">选择 菜单图标</p>
+                    </div>
+                </div>
+                <div class="layui-form-item auth">
+                    <label class="layui-form-label">菜单模块</label>
+                    <div class="layui-input-block">
+                        <input type="text" class="layui-input" name="href" lay-verify="routeCheck" placeholder="请输入菜单模块" value="{{$data['data']['href']??''}}">
+                        <p class="admin-form-tips">对应 Route 里面 模块名称</p>
+                    </div>
+                </div>
+                @if(!$data['sub_menu']->isEmpty())
+                <div class="layui-form-item">
+                    <label class="layui-form-label">权限节点</label>
+                    <div class="layui-input-block">
+                        @foreach($data['sub_menu'] as $k => $v)
+                        <input type="checkbox" name="sub_menu" lay-skin="tag" title="{{$v['title']}}" value="{{$v['id']}}" {{($v['status'] == 1)?"checked":""}} disabled>
+                        @endforeach
+                        <p class="admin-form-tips">权限节点 可选项, 仅开发时用</p>
+                    </div>
+                </div>
+                @endif
+</div>
+@endsection
